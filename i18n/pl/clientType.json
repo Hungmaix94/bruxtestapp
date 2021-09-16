@@ -1,0 +1,34 @@
+{
+  "bruxTestApp": {
+    "clientType": {
+      "home": {
+        "title": "Client Type",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Dodaj Client Type",
+        "createOrEditLabel": "Dodaj lub edytuj: Client Type",
+        "notFound": "No Client Types found"
+      },
+      "created": "Utworzono nowy obiekt typu Client Type z identyfikatorem {{ param }}",
+      "updated": "Uaktualniono obiekt typu Client Type z identyfikatorem {{ param }}",
+      "deleted": "Usunięto obiekt typu Client Type z identyfikatorem {{ param }}",
+      "delete": {
+        "question": "Czy na pewno chcesz usunąć Client Type {{ id }}?"
+      },
+      "detail": {
+        "title": "Client Type"
+      },
+      "id": "ID",
+      "name": "Name",
+      "description": "Description",
+      "enumKey": "Enum Key",
+      "isActive": "Is Active",
+      "role": {
+        "MED_CENTER": "Placówka medyczna",
+        "MED_CENTER_DIRECTOR": "Dyrektor placówki medycznej",
+        "DOCTOR": "Lekarz",
+        "PATIENT": "Pacjent",
+        "INDIVIDUAL_CLIENT": "Klient indywidualny"
+      }
+    }
+  }
+}

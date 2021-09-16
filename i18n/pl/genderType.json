@@ -1,0 +1,27 @@
+{
+  "bruxTestApp": {
+    "genderType": {
+      "home": {
+        "title": "Gender Type",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Dodaj Gender Type",
+        "createOrEditLabel": "Dodaj lub edytuj: Gender Type",
+        "notFound": "No Gender Types found"
+      },
+      "created": "Utworzono nowy obiekt typu Gender Type z identyfikatorem {{ param }}",
+      "updated": "Uaktualniono obiekt typu Gender Type z identyfikatorem {{ param }}",
+      "deleted": "Usunięto obiekt typu Gender Type z identyfikatorem {{ param }}",
+      "delete": {
+        "question": "Czy na pewno chcesz usunąć Gender Type {{ id }}?"
+      },
+      "detail": {
+        "title": "Gender Type"
+      },
+      "id": "ID",
+      "name": "Name",
+      "description": "Description",
+      "enumKey": "Enum Key",
+      "isActive": "Is Active"
+    }
+  }
+}

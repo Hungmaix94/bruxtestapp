@@ -1,0 +1,84 @@
+{
+  "patient": {
+    "home": {
+      "title": "Pacjentów",
+      "refreshListLabel": "Odśwież listę",
+      "notFound": "Nie znaleziono pacjenta"
+    },
+    "filter": {
+      "fullName": "Imię pacjenta",
+      "doctor": "Lekarz",
+      "createdAtFrom": "Data stworzenia z",
+      "createdAtTo": "Data stworzenia do",
+      "treatmentAtFrom": "Uruchomienie leczenia od",
+      "treatmentAtTo": "Uruchomienie zabiegów"
+    },
+    "modalCreatePatient": {
+      "title": "Nowy pacjent.",
+      "subtitle": "Wypełnij formularz, aby utworzyć nowy pacjent w ramach obiektu medycznego",
+      "button": "Utwórz nowy pacjent."
+    },
+    "modalEditPatient": {
+      "title": "Edytuj pacjenta",
+      "subtitle": "Wypełnij formularz do edycji pacjenta pod placówką medyczną",
+      "button": "Edytuj pacjenta"
+    },
+    "created": "Pomyślnie utworzony Pacjent.",
+    "updated": "Pomyślnie zaktualizowany pacjent.",
+    "deleted": "Pomyślnie usunięto pacjenta.",
+    "deactivated": "Pacjent został pomyślnie dezaktywowany",
+    "restored": "Pacjent został pomyślnie przywrócony.",
+    "createPatient": "Utwórz pacjenta",
+    "notFound": "Nie znaleziono pacjenta",
+    "fullName": "Cierpliwy",
+    "patientNumber": "Identyfikator pacjenta",
+    "doctorName": "Główny Lekarz",
+    "treatmentStart": "Uruchomienie leczenia",
+    "actions": "działania",
+    "status": "Status",
+    "nip": "Skakać",
+    "added": "Dodany:",
+    "active": "Aktywny",
+    "inactive": "Nieaktywny",
+    "form": {
+      "button": "Zarejestrować",
+      "step": "Krok",
+      "of": "z",
+      "generalInfo": "Ogólne informacje",
+      "contactData": "Data kontaktu",
+      "diseaseInfo": "Informacje o chorobie",
+      "medicalFacility": "Dane medyczne",
+      "medicalAddress": {
+        "title": "Dane adresowe obiektu medycznego",
+        "description": "Wybierz obiektów medycznych, pod którymi zapewniasz usługi dentystyczne."
+      },
+      "patientNumber": "Identyfikator pacjenta",
+      "firstName": "Imię",
+      "lastName": "Nazwisko",
+      "birthday": "Data urodzenia",
+      "day": "Dzień",
+      "month": "Miesiąc",
+      "year": "Rok",
+      "currency": "Waluta",
+      "email": "Adres e-mail",
+      "emailType": "Typ adresu e-mail",
+      "contactType": "Typ kontaktu",
+      "contactNumberType": "Typ numeru kontaktu",
+      "contactNumber": "Numer kontaktowy",
+      "language": "Język",
+      "fullNameCompany": "Pełna firma Name.",
+      "nip": "SKAKAĆ",
+      "companyEmail": "Adres e-mail firmy",
+      "street": "Ulica",
+      "building": "Budynek",
+      "flat": "Mieszkanie",
+      "city": "Miasto",
+      "country": "Kraj",
+      "district": "Dzielnica",
+      "zipCode": "Kod pocztowy",
+      "medCenter": "Placówka medyczna",
+      "isDifferentAddress": "Adres dostawy jest inny niż adres medyczny",
+      "confirm": "Potwierdzam, że czytałem i akceptuję <a href='#'> Warunki </a>."
+    }
+  }
+}

@@ -1,0 +1,285 @@
+{
+  "global": {
+    "title": "BruxTest",
+    "browsehappy": "You are using an <strong>outdated</strong> browser. Please <a href=\"http://browsehappy.com/?locale=en\">upgrade your browser</a> to improve your experience.",
+    "menu": {
+      "home": "Home",
+      "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
+      "entities": {
+        "main": "Entities",
+        "clientType": "Client Type",
+        "authorityType": "Authority Type",
+        "offerType": "Offer Type",
+        "offerAmountType": "Offer Amount Type",
+        "orderType": "Order Type",
+        "deviceType": "Device Type",
+        "genderType": "Gender Type",
+        "client": "Client",
+        "medCenterClient": "Med Center Client",
+        "offer": "Offer",
+        "offerOfferAmount": "Offer Offer Amount",
+        "offerDeviceType": "Offer Device Type",
+        "country": "Country",
+        "vatType": "Vat Type",
+        "vat": "Vat",
+        "deviceAccessoryStatus": "Device Accessory Status",
+        "deviceStatusType": "Device Status Type",
+        "clientDeviceStatus": "Client Device Status",
+        "diseaseType": "Disease Type",
+        "deviceAccessory": "Accessories",
+        "device": "Device",
+        "measuringDevices": "Measuring Devices",
+        "order": "Orders",
+        "administrators": "Administrators",
+        "doctors": "Doctors",
+        "patients": "Patients",
+        "finances": "Finances",
+        "orderStatusType": "Order Status Type",
+        "deviceAccessoryType": "Device Accessory Type",
+        "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)",
+        "questionnaireTypes": "Questionnaire types",
+        "questionSections": "Question sections",
+        "questionnaire": "Questionnaire",
+        "dictionaries": "Dictionaries",
+        "myHospital": "My hospital"
+      },
+      "account": {
+        "main": "Account",
+        "settings": "Settings",
+        "password": "Password",
+        "sessions": "Sessions",
+        "login": "Sign in",
+        "logout": "Sign out",
+        "register": "Register",
+        "dashboard": "Dashboard"
+      },
+      "admin": {
+        "main": "Administration",
+        "userManagement": "User management",
+        "tracker": "User tracker",
+        "metrics": "Metrics",
+        "health": "Health",
+        "configuration": "Configuration",
+        "logs": "Logs",
+        "apidocs": "API",
+        "database": "Database",
+        "jhipster-needle-menu-add-admin-element": "JHipster will add additional menu entries here (do not translate!)",
+        "systemOwners": "System owners",
+        "systemOffers": "System offers",
+        "survey": "Surveys and courses",
+        "users": "Users"
+      },
+      "language": "Language",
+      "about": "About",
+      "device": "Device",
+      "work": "How it works",
+      "offer": "Offer",
+      "contact": "Contact"
+    },
+    "form": {
+      "username.label": "Username",
+      "username.placeholder": "Your username",
+      "currentpassword": "Current password",
+      "currentpassword.label": "Current password",
+      "currentpassword.placeholder": "Current password",
+      "newpassword": "New password",
+      "newpassword.label": "New password",
+      "newpassword.placeholder": "New password",
+      "confirmpassword": "New password confirmation",
+      "confirmpassword.label": "New password confirmation",
+      "confirmpassword.placeholder": "Confirm the new password",
+      "email.label": "Email",
+      "email.placeholder": "Your email",
+      "email.example": "eg. name@domain.com"
+    },
+    "messages": {
+      "info": {
+        "authenticated": {
+          "prefix": "If you want to ",
+          "link": "sign in",
+          "suffix": ", you can try the default accounts:<br/>- Administrator (login=\"admin\" and password=\"admin\") <br/>- User (login=\"user\" and password=\"user\")."
+        },
+        "register": {
+          "noaccount": "You don't have an account yet?",
+          "link": "Register a new account"
+        }
+      },
+      "error": {
+        "dontmatch": "The password and its confirmation do not match!"
+      },
+      "validate": {
+        "newpassword": {
+          "required": "Your password is required.",
+          "minlength": "Your password is required to be at least 8 characters.",
+          "maxlength": "Your password cannot be longer than 50 characters.",
+          "strength": "Password strength:",
+          "lowercase": "Lowercase alphabet",
+          "uppercase": "Uppercase alphabet",
+          "number": "Number character",
+          "symbol": "Special symbols",
+          "length": "From 8 to 50 characters"
+        },
+        "confirmpassword": {
+          "required": "Your confirmation password is required.",
+          "minlength": "Your confirmation password is required to be at least 4 characters.",
+          "maxlength": "Your confirmation password cannot be longer than 50 characters."
+        },
+        "email": {
+          "required": "Your email is required.",
+          "invalid": "Your email is invalid.",
+          "minlength": "Your email is required to be at least 5 characters.",
+          "maxlength": "Your email cannot be longer than 50 characters."
+        },
+        "invalidField": "This field is invalid"
+      }
+    },
+    "field": {
+      "id": "ID"
+    },
+    "search": {
+      "searchLabel": "Search",
+      "clearLabel": "Clear filters",
+      "show": "Show",
+      "itemsOnThePage": "items on the page"
+    },
+    "ribbon": {
+      "dev": "Development"
+    },
+    "item-count": "Showing {{first}} - {{second}} of {{total}} items."
+  },
+  "entity": {
+    "action": {
+      "actions": "Actions",
+      "confirm": "Ok",
+      "addblob": "Add blob",
+      "addimage": "Add image",
+      "back": "Back",
+      "cancel": "Cancel",
+      "delete": "Delete",
+      "edit": "Edit",
+      "open": "Open",
+      "save": "Save",
+      "view": "View",
+      "filter": "Filter",
+      "first": "First",
+      "previous": "Previous",
+      "next": "Next",
+      "last": "Last",
+      "deactivate": "Deactivate",
+      "restore": "Restore",
+      "disable": "Disable",
+      "editTranslation": "Edit translation",
+      "less": "Less",
+      "more": "More"
+    },
+    "detail": {
+      "field": "Field",
+      "value": "Value",
+      "stepOf": "Step {{ current }} of {{ with }}"
+    },
+    "confirm": {
+      "title": "No device active"
+    },
+    "deactive": {
+      "title": "Confirm disable operation"
+    },
+    "delete": {
+      "title": "Confirm delete operation"
+    },
+    "validation": {
+      "required": "This field is required.",
+      "minlength": "This field is required to be at least {{ min }} characters.",
+      "maxlength": "This field cannot be longer than {{ max }} characters.",
+      "min": "This field should be at least {{ min }}.",
+      "max": "This field cannot be more than {{ max }}.",
+      "minbytes": "This field should be at least {{ min }} bytes.",
+      "maxbytes": "This field cannot be more than {{ max }} bytes.",
+      "pattern": "This field should follow pattern for {{ pattern }}.",
+      "number": "This field should be a number.",
+      "datetimelocal": "This field should be a date and time.",
+      "patternLogin": "This field can only contain letters, digits and e-mail addresses."
+    },
+    "placeholder": {
+      "select": "Select...",
+      "enumKey": "a-z0-9_*()+- only"
+    }
+  },
+  "error": {
+    "internalServerError": "Internal server error",
+    "server.not.reachable": "Server not reachable",
+    "url.not.found": "Not found",
+    "NotNull": "Field {{ fieldName }} cannot be empty!",
+    "Size": "Field {{ fieldName }} does not meet min/max size requirements!",
+    "userexists": "Login name already used!",
+    "emailexists": "Email is already in use!",
+    "phonenumberexist": "Phone Number exists",
+    "idexists": "A new {{ entityName }} cannot already have an ID",
+    "idnull": "Invalid ID",
+    "idinvalid": "Invalid ID",
+    "idnotfound": "ID cannot be found",
+    "orderNotInPaidStatus": "This order is not in paid status",
+    "orderNotInRegisteredStatus": "This order is not in registered status",
+    "orderNotInRegisteredOrPaidStatus": "This order is not in registered or paid status",
+    "deviceNotAvailableOrNotInInActiveStatus": "Devices are not available or not in INACTIVE status",
+    "companyNameExisted": "Company Name already existed!",
+    "taxIdNumberExisted": "Tax ID Number already existed!",
+    "companyEmailExisted": "Company Email already in used!",
+    "duplicatedOrderNumber": "Duplicated Order Number",
+    "duplicatedSerialNumber": "Duplicated Serial Number",
+    "producerContractNumberExists": "Producer Contract Number existed",
+    "invalidEmail": "Email Address is invalid!",
+    "csvInvalidDataFormat": "Data format is not correct!",
+    "orderNumberExists": "Order Number existed",
+    "clientPasswordNotInitiated": "Can't activate the client account, client password has not been initiated!",
+    "duplicateQuestionnaireResultRange": "Duplicated Questionnaire result range",
+    "fromMustBeLessThanTo": "From value must be less than to value",
+    "questionnaireNeedCheckScore": "Questionnaire need to check score",
+    "clientNeedPassSurvey": "Client need to pass the survey to create account",
+    "questionnaireResultRangeInvalid": "Questionnaire result range should have at least 2 items",
+    "noAvailableQuantityInStock": "No available quantity in stock!",
+    "patientNumberExists": "A patient with the same patient number exists",
+    "patientDoesNotExist": "The patient does not exist in this medical facility or under the care of this doctor",
+    "deviceStatusNotMatchWithAction": "This device's status is not match with this action",
+    "questionnaireTypeMustNotDeactivated": "This questionnaire type must not be deactivated",
+    "file": {
+      "could.not.extract": "Could not extract file",
+      "not.image": "File was expected to be an image but was found to be \"{{ fileType }}\""
+    }
+  },
+  "boolean": {
+    "isActive": {
+      "true": "Active",
+      "false": "Inactive"
+    },
+    "isPaid": {
+      "paid": "Paid",
+      "unpaid": "Unpaid"
+    }
+  },
+  "landingPage": {
+    "aboutUs": {
+      "title": "About us",
+      "descriptionPartOne": "Our system helps clinicians diagnose and monitor bruxism, temporomandibular disorders and other dental problems outside the office.",
+      "descriptionPartTwo": "The system consists of a smartphone application and a small wireless electromyographic (EMG) device that the patient wears on the\n        lower jaw. The system was created thanks to the work of an international research team."
+    },
+    "measure": {
+      "title": "Measuring device",
+      "descriptionPartOne": "Our EMG machine is designed to measure tooth friction while providing a protective barrier between the teeth.",
+      "descriptionPartTwo": "These appliances wear as intended with use and can be easily replaced to prevent damage to the dentition.",
+      "descriptionPartThree": "The EMG device has been designed especially for people suffering from bruxism who do not show any symptoms of temporomandibular\n        joint disorders.",
+      "descriptionPartFour": "Single-layer braces fit comfortably against any mouth size and, when positioned, help reduce muscle tension around your mouth while\n        you sleep. EMG is easy to shape and recommended for use overnight as well as during the day as long as the patient is rubbing their\n        teeth during this time."
+    },
+    "howItWorks": {
+      "title": "How it works"
+    }
+  },
+  "footer": {
+    "terms": "Terms and Conditions",
+    "policy": "Privacy Policy",
+    "copyright": "Copyright BruxTest 2021"
+  },
+  "header": {
+    "signin": "Sign in",
+    "register": "Register"
+  }
+}

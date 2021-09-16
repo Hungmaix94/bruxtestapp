@@ -1,0 +1,80 @@
+{
+  "patient": {
+    "home": {
+      "title": "Patients",
+      "refreshListLabel": "Refresh list",
+      "notFound": "No patient found"
+    },
+    "filter": {
+      "fullName": "Patient name",
+      "doctor": "Doctor",
+      "createdAtFrom": "Creation date from",
+      "createdAtTo": "Creation date to",
+      "treatmentAtFrom": "Treatment start from",
+      "treatmentAtTo": "Treatment start to"
+    },
+    "modalCreatePatient": {
+      "title": "New patient",
+      "subtitle": "Fill the form to create new patient under the medical facility",
+      "button": "Create new patient"
+    },
+    "modalEditPatient": {
+      "title": "Edit patient",
+      "subtitle": "Fill the form to edit patient under the medical facility",
+      "button": "Edit patient"
+    },
+    "created": "Successfully created Patient.",
+    "updated": "Successfully updated Patient.",
+    "deleted": "Successfully deleted Patient.",
+    "deactivated": "Succesfully deactivated Patient",
+    "restored": "Succesfully restored Patient",
+    "createPatient": "Create patient",
+    "notFound": "No patient found",
+    "fullName": "Patient",
+    "patientNumber": "Patient ID",
+    "doctorName": "Main doctor",
+    "treatmentStart": "Treatment start",
+    "actions": "Actions",
+    "status": "Status",
+    "nip": "Nip",
+    "added": "Added:",
+    "active": "Active",
+    "inactive": "Inactive",
+    "form": {
+      "button": "Register",
+      "step": "Step",
+      "of": "of",
+      "generalInfo": "General info",
+      "contactData": "Contact data",
+      "diseaseInfo": "Disease info",
+      "medicalFacility": "Medical facility data",
+      "medicalAddress": {
+        "title": "Medical facility address data",
+        "description": "Choose medical facilities under which you provide dental services."
+      },
+      "patientNumber": "Patient ID",
+      "firstName": "First name",
+      "lastName": "Last name",
+      "birthday": "Birth date",
+      "day": "Day",
+      "month": "Month",
+      "year": "Year",
+      "genderTypes": "Gender",
+      "currency": "Currency",
+      "email": "E-mail address",
+      "phoneNumber": "Phone number",
+      "diseaseTypes": "Disease type",
+      "startDate": "Disease start date",
+      "deviceTreatmentFrom": "Start date of treatment with measuring device",
+      "comment": "Comment",
+      "nationality": "Nationality",
+      "city": "City",
+      "country": "Country",
+      "district": "District",
+      "zipCode": "Zip code",
+      "medCenter": "Medical facility",
+      "isDifferentAddress": "Delivery address is different than medical facility address",
+      "confirm": "I confirm that I've read and I accept <a href='#'>Terms and Conditions</a>."
+    }
+  }
+}

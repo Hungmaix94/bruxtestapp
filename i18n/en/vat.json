@@ -1,0 +1,30 @@
+{
+  "bruxTestApp": {
+    "vat": {
+      "home": {
+        "title": "Vats",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Vat",
+        "createOrEditLabel": "Create or edit a Vat",
+        "notFound": "No Vats found"
+      },
+      "created": "A new Vat is created with identifier {{ param }}",
+      "updated": "A Vat is updated with identifier {{ param }}",
+      "deleted": "A Vat is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Vat {{ id }}?"
+      },
+      "detail": {
+        "title": "Vat"
+      },
+      "id": "ID",
+      "vatRate": "Vat Rate",
+      "description": "Description",
+      "enumKey": "Enum Key",
+      "isActive": "Is Active",
+      "validFrom": "Valid From",
+      "validTo": "Valid To",
+      "vatType": "Vat Type"
+    }
+  }
+}

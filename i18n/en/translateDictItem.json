@@ -1,0 +1,27 @@
+{
+  "bruxTestApp": {
+    "translateDictItem": {
+      "home": {
+        "title": "Translate Dict Items",
+        "createLabel": "Create translation for {{ dictName }} {{ enumKey }}",
+        "editLabel": "Edit translation for dictionary {{ dictName }} {{ enumKey }}"
+      },
+      "created": "Successfully created Translation.",
+      "updated": "Successfully updated Translation.",
+      "deleted": "Successfully deleted Translation.",
+      "delete": {
+        "question": "Are you sure you want to delete {{ param }} from Translate Dict Items List?"
+      },
+      "detail": {
+        "title": "Translate Dict Item"
+      },
+      "languageId": "Language Id",
+      "dictTableName": "Dict Table Name",
+      "dictTablePkId": "Dict Table Pk Id",
+      "dictEnumKey": "Dict Enum Key",
+      "itemTranslation": "Item translation",
+      "translateDescription": "Description Translation",
+      "sortOrder": "Sort order"
+    }
+  }
+}

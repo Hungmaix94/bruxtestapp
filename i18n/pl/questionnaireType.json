@@ -1,0 +1,34 @@
+{
+  "bruxTestApp": {
+    "questionnaireType": {
+      "home": {
+        "title": "Rodzaje ankiet",
+        "createLabel": "Dodaj rodzaj ankiety",
+        "editLabel": "Edytuj rodzaj ankiety",
+        "createOrEditLabel": "Dodaj lub edytuj: rodzaj ankiety",
+        "notFound": "Nie znaleziono rodzajów ankiet"
+      },
+      "created": "Rodzaj ankiety został poprawnie utworzony.",
+      "updated": "Rodzaj ankiety został poprawnie zaktualizowany.",
+      "deleted": "Rodzaj ankiety został poprawnie usunięty.",
+      "deactivated": "Rodzaj ankiety został poprawnie dezaktywowany",
+      "restored": "Rodzaj ankiety został poprawnie przywrócony",
+      "deactive": {
+        "question": "Czy na pewno chcesz dezaktywować ten rodzaj ankiety?"
+      },
+      "delete": {
+        "question": "Ta czynność spowoduje natychmiastową dezaktywację wszystkich kwestionariuszy tego typu"
+      },
+      "detail": {
+        "title": "Rodzaj ankiety"
+      },
+      "name": "Nazwa",
+      "description": "Opis",
+      "enumKey": "Enum Key",
+      "isActive": "Status",
+      "translateDescription": "Tłumaczenie opisu",
+      "itemTranslation": "Tłumaczenie",
+      "isScored": "Jest punktowany"
+    }
+  }
+}

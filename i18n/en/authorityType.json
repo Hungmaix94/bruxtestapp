@@ -1,0 +1,27 @@
+{
+  "bruxTestApp": {
+    "authorityType": {
+      "home": {
+        "title": "Authority Types",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Authority Type",
+        "createOrEditLabel": "Create or edit a Authority Type",
+        "notFound": "No Authority Types found"
+      },
+      "created": "A new Authority Type is created with identifier {{ param }}",
+      "updated": "A Authority Type is updated with identifier {{ param }}",
+      "deleted": "A Authority Type is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Authority Type {{ id }}?"
+      },
+      "detail": {
+        "title": "Authority Type"
+      },
+      "id": "ID",
+      "name": "Name",
+      "description": "Description",
+      "enumKey": "Enum Key",
+      "isActive": "Is Active"
+    }
+  }
+}

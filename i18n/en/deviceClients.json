@@ -1,0 +1,25 @@
+{
+  "deviceClients": {
+    "title": "Measuring devices",
+    "notFound": "No device found",
+    "serialNumber": "Serial number",
+    "patientFullName": "Patient",
+    "retailClient": "Retail client",
+    "rentDateFrom": "Rental from",
+    "rentDateTo": "Rental to",
+    "clientDeviceStatus": "Status",
+    "filter": {
+      "deviceSerialNumber": "Device's serial number",
+      "patientFullName": "Patient / Customer",
+      "rentDateFrom": "Rental from",
+      "rentDateTo": "Rental to",
+      "clientDeviceStatusId": "Status"
+    },
+    "statistic": {
+      "numberOfPurchasedDevices": "Number of available devices",
+      "takenDevices": "Taken devices",
+      "resold": "Resold",
+      "returnedToProducer": "Returned to producer"
+    }
+  }
+}

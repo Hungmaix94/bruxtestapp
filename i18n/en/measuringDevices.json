@@ -1,0 +1,62 @@
+{
+  "measuringDevices": {
+    "title": "Measuring devices",
+    "createMeasuringDevices": "Add new device",
+    "modalCreateDevice": {
+      "title": "New device",
+      "subtitle": "Fill the form to register new device in the system.",
+      "button": "Add this device"
+    },
+    "modalEditDevice": {
+      "title": "Update device",
+      "subtitle": "Change the form to update device in the system.",
+      "button": "Update device"
+    },
+    "modalReturn": {
+      "title": "Return to producer",
+      "subtitle": "Serial number of returned device:",
+      "subDescription": "Please enter return reason and date.",
+      "button": "Return to producer"
+    },
+    "modalRegisterDamage": {
+      "title": "Register damage to the device",
+      "subtitle": "Serial number of the damaged device:",
+      "subDescription": "Please enter the reason and date for returning the device to the producer",
+      "button": "Register damage"
+    },
+    "notFound": "No device found",
+    "returnReason": "Return reason",
+    "returnDate": "Return date",
+    "serialNumber": "Serial number",
+    "deviceSerialnumber": "Device's serial number",
+    "deviceSerialSubtitle": "You can enter more than one serial number, dividing them with symbol",
+    "orderTypeId": "Purpose",
+    "deviceType": "Device type",
+    "devicePurpose": "Device purpose",
+    "amount": "Purchase cost",
+    "purchaseAmountFrom": "Purchase amount from",
+    "purchaseAmountTo": "Purchase amount to",
+    "unitPrice": "Price per unit",
+    "totalprice": "Total price",
+    "dateFrom": "Adding date from",
+    "dateTo": "Adding date until",
+    "producerContractNumber": "Contract with manufacturer",
+    "deviceStatusTypeId": "Status",
+    "actions": "Actions",
+    "edit": "Edit",
+    "returnToProducer": "Return to manufacturer",
+    "registerDamage": "Register damage",
+
+    "added": "Added: ",
+    "orderno": "Order no: ",
+    "numberOfAddedDevices": "Number of added devices",
+    "numberOfAvailableDevices": "Number of available devices",
+    "forSales": "For sale",
+    "forRental": "For rent",
+    "damagedAndReturned": "Damaged or returned",
+    "totalCostOfSoldDevices": "Total cost of sold devices:",
+    "totalNumberOfSoldDevices": "Total number of sold devices:",
+    "soldDeviceUnit": "items",
+    "quantity": "Quantity"
+  }
+}

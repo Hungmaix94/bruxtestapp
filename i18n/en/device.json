@@ -1,0 +1,30 @@
+{
+  "bruxTestApp": {
+    "device": {
+      "home": {
+        "title": "Devices",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Device",
+        "createOrEditLabel": "Create or edit a Device",
+        "notFound": "No Devices found"
+      },
+      "created": "Successfully created device",
+      "updated": "Successfully updated device",
+      "deleted": "Successfully deleted device",
+      "delete": {
+        "question": "Are you sure you want to delete this Device?"
+      },
+      "detail": {
+        "title": "Device"
+      },
+      "id": "ID",
+      "seriesNumber": "Series Number",
+      "orderNumber": "Order Number",
+      "amount": "Amount",
+      "returnReason": "Return Reason",
+      "returnDate": "Return Date",
+      "deviceStatusType": "Device Status Type",
+      "orderType": "Order Type"
+    }
+  }
+}

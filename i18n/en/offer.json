@@ -1,0 +1,107 @@
+{
+  "bruxTestApp": {
+    "offer": {
+      "home": {
+        "title": "System offers",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create new offer",
+        "createOrEditLabel": "Create or edit a Offer",
+        "notFound": "No Offers found"
+      },
+      "createAnOffer": "Create an offer",
+      "editAnOffer": "Edit offer",
+      "notFound": "No Offers found",
+      "created": "Successfully created Offer.",
+      "updated": "Successfully updated Offer.",
+      "deleted": "Successfully deleted Offer.",
+      "deactivated": "Succesfully deactivated Offer",
+      "restored": "Succesfully restored Offer",
+      "delete": {
+        "question": "Are you sure you want to delete {{ param }} from Offers List?"
+      },
+      "detail": {
+        "title": "Offer"
+      },
+      "id": "ID",
+      "monthLength": "Length (months)",
+      "name": "Name",
+      "offerName": "Offer's name",
+      "description": "Description",
+      "periodStartDate": "Available from",
+      "periodEndDate": "Available to",
+      "amount": "Price",
+      "isActive": "Is Active",
+      "offerType": "Offer type",
+      "orderType": "Order type",
+      "offerTypeId": "Offer type",
+      "createdAt": "Created",
+      "createdAtFrom": "Creation date from",
+      "createdAtTo": "Creation date to",
+      "currencyId": "Currency",
+      "vatTypeId": "VAT",
+      "net": "Net",
+      "gross": "Gross",
+      "modal": {
+        "title": "Please register",
+        "description": "Register in BruxTest system in order to buy or subscribe an offer",
+        "button": {
+          "register": "Register",
+          "close": "Maybe later",
+          "login": "Sign in"
+        },
+        "text": "Already have an account? "
+      },
+      "monthly": "per month",
+      "card": {
+        "buy": "You buy device",
+        "rent": "You rent a device"
+      },
+      "button": {
+        "choose": "Choose"
+      },
+      "item": "item",
+      "accessories": "Accessories",
+      "deviceType": "Device type",
+      "quantity": "Quantity",
+      "netPrice": "Net price",
+      "total": "Total:",
+      "devices": "Devices",
+      "purchasePricePerDevice": "Purchase price per 1 device",
+      "numberOfDevicesInOffer": "Number of devices in the offer",
+      "modalEditOffer": {
+        "title": "Edit offer",
+        "createSubtitle": "Fill the form to edit "
+      },
+      "modalCreateOffer": {
+        "title": "New offer",
+        "subtitle": "Please choose offer type",
+        "createSubtitle": "Fill the form to create new ",
+        "subscription": "subscription for ",
+        "offer": "offer",
+        "offerTypeDescription": "Define measuring device's purpose in this offer.",
+        "stepGeneralData": {
+          "title": "General information",
+          "subtitle": "Enter offer's name and description (optional). Define its availability on the website and expiry date."
+        },
+        "totalAmountPart": {
+          "title": "Total offer's amount",
+          "subtitle": "Offer's gross amount will be displayed on home page of the website."
+        },
+        "accessoriesType": {
+          "stepFinancialData": {
+            "title": "Financial data",
+            "subtitle": "Define currency and VAT tax value for created offer.",
+            "amountDescription": "Net price of access to the system"
+          },
+          "stepAccessoriesData": {
+            "title": "Accessories",
+            "titleWithDevices": "Device and accessories",
+            "subtitle": "Assign accessories and set number of items and its net price.",
+            "subtitleWithDevices": "Define measuring device's price. Optional assign accessories and set the number of items and their net price.",
+            "measuringDeviceNetPrice": "Measuring device's net price"
+          }
+        }
+      }
+    }
+  }
+}

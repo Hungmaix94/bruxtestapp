@@ -1,0 +1,27 @@
+{
+  "bruxTestApp": {
+    "translateDictItem": {
+      "home": {
+        "title": "Tłumaczenia",
+        "createLabel": "Dodaj tłumaczenie {{ dictName }} {{ enumKey }}",
+        "editLabel": "Edytuj tłumaczenie słownika {{ dictName }} {{ enumKey }}"
+      },
+      "created": "Tłumaczenie zostało poprawnie utworzone.",
+      "updated": "Tłumaczenie zostało poprawnie zaktualizowane.",
+      "deleted": "Tłumaczenie zostało poprawnie usunięte.",
+      "delete": {
+        "question": "Czy na pewno chcesz usunąć {{ param }} z listy tłumaczeń?"
+      },
+      "detail": {
+        "title": "Tłumaczenie"
+      },
+      "languageId": "Language Id",
+      "dictTableName": "Dict Table Name",
+      "dictTablePkId": "Dict Table Pk Id",
+      "dictEnumKey": "Dict Enum Key",
+      "itemTranslation": "Tłumaczenie",
+      "translateDescription": "Tłumaczenie opisu",
+      "sortOrder": "Kolejność sortowania"
+    }
+  }
+}

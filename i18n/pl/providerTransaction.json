@@ -1,0 +1,25 @@
+{
+  "bruxTestApp": {
+    "providerTransaction": {
+      "home": {
+        "title": "Provider Transaction",
+        "createLabel": "Dodaj Provider Transaction",
+        "createOrEditLabel": "Dodaj lub edytuj: Provider Transaction",
+        "notFound": "No Provider Transactiones found"
+      },
+      "created": "Utworzono nowy obiekt typu Provider Transaction z identyfikatorem {{ param }}",
+      "updated": "Uaktualniono obiekt typu Provider Transaction z identyfikatorem {{ param }}",
+      "deleted": "Usunięto obiekt typu Provider Transaction z identyfikatorem {{ param }}",
+      "delete": {
+        "question": "Czy na pewno chcesz usunąć Provider Transaction {{ id }}?"
+      },
+      "detail": {
+        "title": "Provider Transaction"
+      },
+      "name": "Name",
+      "description": "Description",
+      "enumKey": "Enum Key",
+      "isActive": "Is Active"
+    }
+  }
+}

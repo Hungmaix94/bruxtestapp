@@ -1,0 +1,23 @@
+{
+  "login": {
+    "title": "Logowanie",
+    "info": "Twoje nowe hasło zostało zapisane. Zaloguj się przy jego pomocy.",
+    "form": {
+      "password": "Hasło",
+      "password.placeholder": "Twoje hasło",
+      "rememberme": "Pamiętaj mnie",
+      "forgot": "Nie pamiętam hasła",
+      "button": "Zaloguj się",
+      "emailAlert": "Wpisz swój adres e-mail. Wyślemy Ci link do resetowania hasła.",
+      "reset": "Zresetuj hasło"
+    },
+    "messages": {
+      "error": {
+        "authentication": "<strong>Nieudane logowanie!</strong> Sprawdź swoje dane logowania i spróbuj ponownie."
+      }
+    },
+    "password": {
+      "forgot": "Zapomniałeś swojego hasła?"
+    }
+  }
+}

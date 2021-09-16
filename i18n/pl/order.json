@@ -1,0 +1,64 @@
+{
+  "bruxTestApp": {
+    "order": {
+      "home": {
+        "title": "Zamówienia",
+        "titleDirector": "Twoje zamówienia",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Dodaj Order",
+        "createOrder": "Dodaj Order",
+        "createOrEditLabel": "Dodaj lub edytuj: Order",
+        "notFound": "Nie znaleziono zamówień"
+      },
+      "modalInfo": {
+        "title": "Statusy zamówień"
+      },
+      "modalComplete": {
+        "title": "Zrealizuj swoje zamówienie",
+        "subtitle": "Liczba urządzeń pomiarowych w tym zamówieniu",
+        "subtitleMore": "Liczba akcesoriów w tym zamówieniu",
+        "subDescription": "Wprowadź numery seryjne urządzeń przypisanych do tego zamówienia. Oddziel następujące numery seryjne od siebie za pomocą symbolu:",
+        "button": "Sfinalizuj to zamówienie",
+        "serialNumbers": "Numery seryjne urządzeń",
+        "serialNumbersError": "Liczba numerów seryjnych musi być równa liczbie urządzeń pomiarowych w zamówieniu"
+      },
+      "created": "Utworzono nowy obiekt typu Order z identyfikatorem {{ param }}",
+      "updated": "Uaktualniono obiekt typu Order z identyfikatorem {{ param }}",
+      "deleted": "Usunięto obiekt typu Order z identyfikatorem {{ param }}",
+      "delete": {
+        "question": "Czy na pewno chcesz usunąć Order {{ id }}?"
+      },
+      "detail": {
+        "title": "Zamówienie",
+        "summary": "Podsumowanie zamówienia",
+        "deviceCount": "Liczba urządzeń pomiarowych",
+        "unit": "jednostka"
+      },
+      "filter": {
+        "orderNumber": "Zamówienie",
+        "clientName": "Klient",
+        "orderTitle": "Tytuł",
+        "offerId": "Rodzaj oferty",
+        "orderStatusTypeId": "Status",
+        "orderDateFrom": "Data zamówienia od",
+        "orderDateTo": "Data zamówienia do",
+        "paymentDateFrom": "Dane płatności od",
+        "paymentDateTo": "Dane płatności do",
+        "amountFrom": "Kwota od",
+        "amountTo": "Kwota do"
+      },
+      "notFound": "Nie znaleziono zamówień",
+      "soldDeviceCount": "Całkowita wartość sprzedanych urządzeń pomiarowych",
+      "soldAccessoryCount": "Całkowita wartość sprzedanych akcesoriów",
+      "orderNumber": "Zamówienie",
+      "clientName": "Klient",
+      "amount": "kwota",
+      "title": "Tytuł",
+      "billedDate": "Data rozliczenia",
+      "offerId": "Rodzaj oferty",
+      "offerTypeId": "Rodzaj oferty",
+      "paymentDate": "Termin płatności",
+      "orderStatusTypeId": "Status"
+    }
+  }
+}

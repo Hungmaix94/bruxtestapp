@@ -1,0 +1,27 @@
+{
+  "bruxTestApp": {
+    "orderStatusType": {
+      "home": {
+        "title": "Order Status",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Dodaj Order Status",
+        "createOrEditLabel": "Dodaj lub edytuj: Order Status",
+        "notFound": "No Order Statuses found"
+      },
+      "created": "Utworzono nowy obiekt typu Order Status z identyfikatorem {{ param }}",
+      "updated": "Uaktualniono obiekt typu Order Status z identyfikatorem {{ param }}",
+      "deleted": "Usunięto obiekt typu Order Status z identyfikatorem {{ param }}",
+      "delete": {
+        "question": "Czy na pewno chcesz usunąć Order Status {{ id }}?"
+      },
+      "detail": {
+        "title": "Order Status"
+      },
+      "id": "ID",
+      "name": "Name",
+      "description": "Description",
+      "enumKey": "Enum Key",
+      "isActive": "Is Active"
+    }
+  }
+}

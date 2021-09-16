@@ -1,0 +1,28 @@
+{
+  "bruxTestApp": {
+    "vatType": {
+      "home": {
+        "title": "Vat Type",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Dodaj Vat Type",
+        "createOrEditLabel": "Dodaj lub edytuj: Vat Type",
+        "notFound": "No Vat Types found"
+      },
+      "created": "Utworzono nowy obiekt typu Vat Type z identyfikatorem {{ param }}",
+      "updated": "Uaktualniono obiekt typu Vat Type z identyfikatorem {{ param }}",
+      "deleted": "Usunięto obiekt typu Vat Type z identyfikatorem {{ param }}",
+      "delete": {
+        "question": "Czy na pewno chcesz usunąć Vat Type {{ id }}?"
+      },
+      "detail": {
+        "title": "Vat Type"
+      },
+      "id": "ID",
+      "name": "Name",
+      "description": "Description",
+      "enumKey": "Enum Key",
+      "isActive": "Is Active",
+      "country": "Country"
+    }
+  }
+}

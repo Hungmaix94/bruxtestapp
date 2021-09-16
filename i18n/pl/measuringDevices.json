@@ -1,0 +1,61 @@
+{
+  "measuringDevices": {
+    "title": "Urządzenia pomiarowe",
+    "createMeasuringDevices": "Dodaj urządzenie",
+    "modalCreateDevice": {
+      "title": "Nowe urządzenie",
+      "subtitle": "Wypełnij formularz, aby zarejestrować nowe urządzenia w systemie.",
+      "button": "Dodaj urządzenie"
+    },
+    "modalEditDevice": {
+      "title": "Uaktualnij urządzenie",
+      "subtitle": "Zmień wartości pól, aby uaktualnić urządzenie.",
+      "button": "Uaktualnij urządzenie"
+    },
+    "modalReturn": {
+      "title": "Return to producer",
+      "subtitle": "Serial number of returned device:",
+      "subDescription": "Please enter return reason and date.",
+      "button": "Return to producer"
+    },
+    "modalRegisterDamage": {
+      "title": "Register damage to the device",
+      "subtitle": "Serial number of the damaged device:",
+      "subDescription": "Please enter the reason and date for returning the device to the producer",
+      "button": "Register damage"
+    },
+    "notFound": "Nie znaleziono urządzeń",
+    "returnReason": "Return reason",
+    "returnDate": "Return date",
+    "serialNumber": "Numer seryjny",
+    "deviceSerialnumber": "Numer seryjny urządzenia",
+    "deviceSerialSubtitle": "Możesz podać więcej niż jeden numer seryjny, oddzielając je znakiem",
+    "orderTypeId": "Przeznaczenie",
+    "deviceType": "Rodzaj urządzenia",
+    "devicePurpose": "Przeznaczenie urządzenia",
+    "amount": "Koszt zakupu",
+    "purchaseAmountFrom": "Kwota zakupu od",
+    "purchaseAmountTo": "Kwota zakupu do",
+    "unitPrice": "Cena za sztukę",
+    "totalprice": "Cena łącznie",
+    "dateFrom": "Data dodania od",
+    "dateTo": "Data dodania do",
+    "producerContractNumber": "Umowa z producentem",
+    "deviceStatusTypeId": "Status",
+    "actions": "Actions",
+    "edit": "Edytuj",
+    "returnToProducer": "Zwróć do producenta",
+    "registerDamage": "Zgłoś uszkodzenie",
+    "added": "Dodano: ",
+    "orderno": "Numer zam: ",
+    "numberOfAddedDevices": "Liczba dodanych urządzeń",
+    "numberOfAvailableDevices": "Liczba dostępnych urządzeń",
+    "forSales": "Na sprzedaż",
+    "forRental": "Do wynajęcia",
+    "damagedAndReturned": "Uszkodzone lub zwrócone",
+    "totalCostOfSoldDevices": "Całkowity koszt sprzedanych urządzeń:",
+    "totalNumberOfSoldDevices": "Całkowita liczba sprzedanych urządzeń:",
+    "soldDeviceUnit": "items",
+    "quantity": "Liczba sztuk"
+  }
+}

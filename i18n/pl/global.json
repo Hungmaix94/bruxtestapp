@@ -1,0 +1,284 @@
+{
+  "global": {
+    "title": "BruxTest",
+    "browsehappy": "Używasz <strong>przestarzałej</strong> przeglądarki. Proszę <a href=\"http://browsehappy.com/\">uaktualnij swoją przeglądarkę</a> aby poprawić wrażenia z użytkowania tej aplikacji.",
+    "menu": {
+      "home": "Strona domowa",
+      "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
+      "entities": {
+        "main": "Encje",
+        "clientType": "Client Type",
+        "authorityType": "Authority Type",
+        "offerType": "Offer Type",
+        "offerAmountType": "Offer Amount Type",
+        "orderType": "Order Type",
+        "deviceType": "Device Type",
+        "measuringDevices": "Urządzenia pomiarowe",
+        "genderType": "Gender Type",
+        "client": "Client",
+        "medCenterClient": "Med Center Client",
+        "offer": "Offer",
+        "offerOfferAmount": "Offer Offer Amount",
+        "offerDeviceType": "Offer Device Type",
+        "country": "Country",
+        "vatType": "Vat Type",
+        "vat": "Vat",
+        "deviceAccessoryStatus": "Device Accessory Status",
+        "deviceStatusType": "Device Status Type",
+        "clientDeviceStatus": "Client Device Status",
+        "diseaseType": "Disease Type",
+        "deviceAccessory": "Akcesorium",
+        "device": "Device",
+        "order": "Zamówienia",
+        "administrators": "Administratorzy",
+        "doctors": "Lekarze",
+        "patients": "Pacjenci",
+        "finances": "Finanse",
+        "orderStatusType": "Order Status Type",
+        "deviceAccessoryType": "Device Accessory Type",
+        "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)",
+        "questionnaireTypes": "Rodzaje ankiet",
+        "questionSections": "Sekcje pytań",
+        "questionnaire": "Ankieta",
+        "dictionaries": "Słowniki",
+        "myHospital": "Mój szpital"
+      },
+      "account": {
+        "main": "Konto",
+        "settings": "Ustawienia",
+        "password": "Hasło",
+        "sessions": "Sesje",
+        "login": "Logowanie",
+        "logout": "Wyloguj",
+        "register": "Zarejestruj się",
+        "dashboard": "Pulpit"
+      },
+      "admin": {
+        "main": "Administracja",
+        "userManagement": "Użytkownicy",
+        "tracker": "Śledzenie użytkownika",
+        "metrics": "Metryki",
+        "health": "Status",
+        "configuration": "Konfiguracja",
+        "logs": "Logi",
+        "apidocs": "API",
+        "database": "Baza danych",
+        "jhipster-needle-menu-add-admin-element": "JHipster will add additional menu entries here (do not translate!)",
+        "systemOwners": "Właściciele systemu",
+        "systemOffers": "Oferty systemowe",
+        "survey": "Ankiety i kursy",
+        "users": "Użytkownicy"
+      },
+      "language": "Język",
+      "about": "O nas",
+      "device": "Urządzenie,",
+      "work": "Jak to działa",
+      "offer": "Oferta",
+      "contact": "Kontakt"
+    },
+    "form": {
+      "username.label": "Nazwa użytkownika",
+      "username.placeholder": "Twój login",
+      "currentpassword": "Aktualne hasło",
+      "currentpassword.label": "Aktualne hasło",
+      "currentpassword.placeholder": "Aktualne hasło",
+      "newpassword.label": "Nowe hasło",
+      "newpassword": "Nowe hasło",
+      "newpassword.placeholder": "Nowe hasło",
+      "confirmpassword.label": "Potwierdź nowe hasło",
+      "confirmpassword": "Potwierdź nowe hasło",
+      "confirmpassword.placeholder": "Potwierdź nowe hasło",
+      "email.label": "Email",
+      "email.placeholder": "Twój email",
+      "email.example": "np.: imie@domena.pl"
+    },
+    "messages": {
+      "info": {
+        "authenticated": {
+          "prefix": "Jeśli chcesz się ",
+          "link": "zalogować",
+          "suffix": ", możesz spróbować któregoś z domyślnych kont:<br/>- Administrator (login=\"admin\" i hasło=\"admin\") <br/>- Użytkownik (login=\"user\" i hasło=\"user\")."
+        },
+        "register": {
+          "noaccount": "Nie masz jeszcze konta?",
+          "link": "Zarejestruj się"
+        }
+      },
+      "error": {
+        "dontmatch": "Hasło i potwierdzenie nie zgadzają się!"
+      },
+      "validate": {
+        "newpassword": {
+          "required": "Twoje hasło jest wymagane.",
+          "minlength": "Twoje hasło powinno mieć minimum 8 znaków",
+          "maxlength": "Twoje hasło nie może być dłuższe niż 50 znaków",
+          "strength": "Siła hasła:",
+          "lowercase": "Twoje hasło powinno mieć co najmniej jedną małą literę",
+          "uppercase": "Twoje hasło powinno mieć co najmniej jedną dużą literę",
+          "number": "Twoje hasło powinno mieć co najmniej jedną cyfrę",
+          "symbol": "Twoje hasło powinno mieć co najmniej jeden znak specjalny",
+          "length": "Twoje hasło powinno mieć od 8 do 50 znaków"
+        },
+        "confirmpassword": {
+          "required": "Potwierdzenie hasła jest wymagane.",
+          "minlength": "Potwierdzenie hasła powinno mieć minimum 4 znaki",
+          "maxlength": "Potwierdzenie hasła nie powinno być dłuższe niż 50 znaków"
+        },
+        "email": {
+          "required": "Twój email jest wymagany.",
+          "invalid": "Twój email jest błędny.",
+          "minlength": "Twój email musi mieć przynajmniej 5 znaków",
+          "maxlength": "Twój email nie może być dłuższy niż 50 znaków"
+        },
+        "invalidField": "Nieprawidłowa wartość pola"
+      }
+    },
+    "field": {
+      "id": "ID"
+    },
+    "search": {
+      "searchLabel": "Szukaj",
+      "clearLabel": "Wyczyść filtry",
+      "show": "Pokaż",
+      "itemsOnThePage": "elementów na stronie"
+    },
+    "ribbon": {
+      "dev": "Development"
+    },
+    "item-count": "Wyświetlono {{first}} - {{second}} z {{total}} elementów."
+  },
+  "entity": {
+    "action": {
+      "confirm": "Ok",
+      "actions": "Akcje",
+      "addblob": "Dodaj dane binarne",
+      "addimage": "Dodaj zdjęcie",
+      "back": "Wstecz",
+      "cancel": "Anuluj",
+      "delete": "Usuń",
+      "edit": "Edytuj",
+      "open": "Otwórz",
+      "save": "Zapisz",
+      "view": "Widok",
+      "filter": "Filtruj",
+      "first": "Pierwszy",
+      "previous": "Poprzedni",
+      "next": "Następny",
+      "last": "Ostatni",
+      "deactivate": "Dezaktywuj",
+      "restore": "Przywróć",
+      "disable": "Dezaktywuj",
+      "editTranslation": "Edytuj tłumaczenie",
+      "less": "Mniej",
+      "more": "Więcej"
+    },
+    "detail": {
+      "field": "Pole",
+      "value": "Wartość",
+      "stepOf": "Krok {{ current }} z {{ with }}"
+    },
+    "confirm": {
+      "title": "Żadne urządzenie nie jest aktywne"
+    },
+    "delete": {
+      "title": "Potwierdź usunięcie"
+    },
+    "deactive": {
+      "title": "Potwierdź dezaktywację"
+    },
+    "validation": {
+      "required": "To pole jest wymagane.",
+      "minlength": "Wartość musi mieć długość co najmniej {{min}} znaków.",
+      "maxlength": "Wartość nie może być dłuższa niż {{max}} znaków.",
+      "min": "Wartość powinna być większa niż {{min}}.",
+      "max": "Wartość nie może być większa niż {{max}}.",
+      "minbytes": "Wartość nie może być mniejsza niż {{min}} bajtów.",
+      "maxbytes": "Wartość nie może być większa niż {{max}} bajtów.",
+      "pattern": "Wartość powinna być zgodna ze wzorem {{pattern}}.",
+      "number": "Wartość powinna być liczbowa.",
+      "datetimelocal": "Wartość powinna zawierać datę i czas."
+    },
+    "placeholder": {
+      "select": "Wybierz...",
+      "enumKey": "a-z0-9_*()+-"
+    }
+  },
+  "error": {
+    "internalServerError": "Wewnętrzny błąd serwera",
+    "server.not.reachable": "Serwer jest nieosiągalny",
+    "url.not.found": "Nie znaleziono",
+    "NotNull": "Wartość {{fieldName}} nie może być pusta!",
+    "Size": "Wartość {{fieldName}} nie spełnia wymagań co do długości!",
+    "userexists": "Użytkownik o takiej nazwie już istnieje!",
+    "emailexists": "Użytkownik z takim adresem email już istnieje!",
+    "phonenumberexist": "Podany numer telefonu należy już do innego użytkownika",
+    "idexists": "Nowy {{entityName}} nie może jeszcze mieć przypisanego ID",
+    "idnull": "Błędne ID",
+    "idinvalid": "Invalid Id",
+    "idnotfound": "ID cannot be found",
+    "orderNotInPaidStatus": "To zamówienie nie ma statusu opłaconego",
+    "orderNotInRegisteredStatus": "To zamówienie nie jest zarejestrowane",
+    "orderNotInRegisteredOrPaidStatus": "To zamówienie nie jest zarejestrowane ani opłacone",
+    "deviceNotAvailableOrNotInInActiveStatus": "Urządzenia są niedostępne lub nie są NIEAKTYWNE",
+    "companyNameExisted": "Nazwa firmy już istnieje!",
+    "taxIdNumberExisted": "Numer NIP już istnieje!",
+    "companyEmailExisted": "E-mail firmowy jest już używany!",
+    "duplicatedOrderNumber": "Zduplikowany numer zamówienia",
+    "duplicatedSerialNumber": "Zduplikowany numer seryjny",
+    "producerContractNumberExists": "Numer umowy producenta istniał",
+    "invalidEmail": "Adres e-mail jest nieprawidłowy!",
+    "csvInvalidDataFormat": "Format danych nie jest poprawny!",
+    "orderNumberExists": "Numer zamówienia istniał",
+    "clientPasswordNotInitiated": "Nie można aktywować konta klienta, hasło klienta nie zostało zainicjowane!",
+    "duplicateQuestionnaireResultRange": "Zduplikowany zakres wyników kwestionariusza",
+    "fromMustBeLessThanTo": "Od wartości musi być mniejsze niż do wartości",
+    "questionnaireNeedCheckScore": "Kwestionariusz musi sprawdzić wynik",
+    "clientNeedPassSurvey": "Klient musi przejść ankietę, aby utworzyć konto",
+    "questionnaireResultRangeInvalid": "Zakres wyników kwestionariusza powinien zawierać co najmniej 2 pozycje",
+    "noAvailableQuantityInStock": "Brak dostępnej ilości w magazynie!",
+    "patientNumberExists": "Jest pacjent o tym samym numerze pacjenta",
+    "patientDoesNotExist": "Pacjent nie istnieje w tej placówce medycznej ani pod opieką tego lekarza",
+    "deviceStatusNotMatchWithAction": "Stan tego urządzenia nie jest zgodny z tym działaniem",
+    "questionnaireTypeMustNotDeactivated": "Tego typu kwestionariusza nie można dezaktywować",
+    "file": {
+      "could.not.extract": "Could not extract file",
+      "not.image": "File was expected to be an image but was found to be \"{{ fileType }}\""
+    }
+  },
+  "boolean": {
+    "isActive": {
+      "true": "Aktywny",
+      "false": "Nieaktywny"
+    },
+    "isPaid": {
+      "paid": "Płatny",
+      "unpaid": "Nie zapłacony"
+    }
+  },
+  "landingPage": {
+    "aboutUs": {
+      "title": "O nas",
+      "descriptionPartOne": "Our system helps clinicians diagnose and monitor bruxism, temporomandibular disorders and other dental problems outside the office.",
+      "descriptionPartTwo": "The system consists of a smartphone application and a small wireless electromyographic (EMG) device that the patient wears on the\n        lower jaw. The system was created thanks to the work of an international research team."
+    },
+    "measure": {
+      "title": "Measuring device",
+      "descriptionPartOne": "Our EMG machine is designed to measure tooth friction while providing a protective barrier between the teeth.",
+      "descriptionPartTwo": "These appliances wear as intended with use and can be easily replaced to prevent damage to the dentition.",
+      "descriptionPartThree": "The EMG device has been designed especially for people suffering from bruxism who do not show any symptoms of temporomandibular\n        joint disorders.",
+      "descriptionPartFour": "Single-layer braces fit comfortably against any mouth size and, when positioned, help reduce muscle tension around your mouth while\n        you sleep. EMG is easy to shape and recommended for use overnight as well as during the day as long as the patient is rubbing their\n        teeth during this time."
+    },
+    "howItWorks": {
+      "title": "How it works"
+    }
+  },
+  "footer": {
+    "terms": "Regulamin",
+    "policy": "Polityka prywatności",
+    "copyright": "Copyright BruxTest 2021"
+  },
+  "header": {
+    "signin": "Zaloguj się",
+    "register": "Zarejestruj się"
+  }
+}

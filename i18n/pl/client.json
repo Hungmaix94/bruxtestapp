@@ -1,0 +1,44 @@
+{
+  "bruxTestApp": {
+    "client": {
+      "home": {
+        "title": "Użytkownicy",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Dodaj użytkownika",
+        "createOrEditLabel": "Dodaj lub edytuj: Client",
+        "notFound": "No Clients found"
+      },
+      "notFound": "Nie znaleziono użytkowników",
+      "created": "Pomyślnie utworzono użytkownika.",
+      "updated": "Pomyślnie przywrócono użytkownika",
+      "deleted": "Pomyślnie dezaktywowano użytkownika",
+      "delete": {
+        "question": "Czy na pewno chcesz usunąć tego użytkownika?"
+      },
+      "detail": {
+        "title": "Klient"
+      },
+      "id": "ID",
+      "patientNumber": "Numer pacjenta",
+      "taxIdNumber": "NIP",
+      "regon": "Regon",
+      "dateOfBirth": "Data urodzenia",
+      "pwzNumber": "Pwz Number",
+      "isActive": "Is Active",
+      "clientType": "Typ klienta",
+      "genderType": "Rodzaj płci",
+      "actions": "Działania",
+      "status": "Status",
+      "fullName": "Użytkownik",
+      "role": "Rola",
+      "email": "Email",
+      "companyName": "Nazwa firmy",
+      "nip": "NIP",
+      "address": "Adres",
+      "city": "Miasto",
+      "country": "Kraj",
+      "active": "Aktywny",
+      "inactive": "Nieaktywny"
+    }
+  }
+}

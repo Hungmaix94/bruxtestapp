@@ -1,0 +1,36 @@
+{
+  "bruxTestApp": {
+    "questionSection": {
+      "home": {
+        "title": "Sekcje pytań",
+        "createLabel": "Dodaj sekcję pytań",
+        "editLabel": "Edytuj sekcję pytań",
+        "createOrEditLabel": "Dodaj lub edytuj: sekcja pytań",
+        "notFound": "Nie znaleziono sekcji pytań"
+      },
+      "created": "Sekcja pytań została poprawnie utworzona.",
+      "updated": "Sekcja pytań została poprawnie zaktualizowana.",
+      "deleted": "Sekcja pytań została poprawnie usunięta.",
+      "deactivated": "Sekcja pytań została poprawnie dezaktywowana",
+      "restored": "Sekcja pytań przywrócona poprawnie",
+      "deactive": {
+        "question": "Czy na pewno chcesz dezaktywować tę sekcję pytań?"
+      },
+      "delete": {
+        "question": "Czy na pewno chcesz usunąć tę sekcję pytań?"
+      },
+      "restore": {
+        "question": "Czy na pewno chcesz przywrócić tę sekcję pytań?"
+      },
+      "detail": {
+        "title": "Sekcja pytań"
+      },
+      "name": "Nazwa",
+      "description": "Opis",
+      "enumKey": "Enum Key",
+      "isActive": "Status",
+      "translateDescription": "Tłumaczenie opisu",
+      "itemTranslation": "Tłumaczenie"
+    }
+  }
+}

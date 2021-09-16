@@ -1,0 +1,27 @@
+{
+  "bruxTestApp": {
+    "deviceAccessoryStatus": {
+      "home": {
+        "title": "Device Accessory Status",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Dodaj Device Accessory Status",
+        "createOrEditLabel": "Dodaj lub edytuj: Device Accessory Status",
+        "notFound": "No Device Accessory Statuses found"
+      },
+      "created": "Utworzono nowy obiekt typu Device Accessory Status z identyfikatorem {{ param }}",
+      "updated": "Uaktualniono obiekt typu Device Accessory Status z identyfikatorem {{ param }}",
+      "deleted": "Usunięto obiekt typu Device Accessory Status z identyfikatorem {{ param }}",
+      "delete": {
+        "question": "Czy na pewno chcesz usunąć Device Accessory Status {{ id }}?"
+      },
+      "detail": {
+        "title": "Device Accessory Status"
+      },
+      "id": "ID",
+      "name": "Name",
+      "description": "Description",
+      "enumKey": "Enum Key",
+      "isActive": "Is Active"
+    }
+  }
+}

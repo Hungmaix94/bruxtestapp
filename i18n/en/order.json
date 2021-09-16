@@ -1,0 +1,64 @@
+{
+  "bruxTestApp": {
+    "order": {
+      "home": {
+        "title": "Orders",
+        "titleDirector": "Your orders",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Order",
+        "createOrder": "Create a new Order",
+        "createOrEditLabel": "Create or edit a Order",
+        "notFound": "No Orders found"
+      },
+      "modalInfo": {
+        "title": "Order statuses"
+      },
+      "modalComplete": {
+        "title": "Complete your order",
+        "subtitle": "Number of measuring devices in this order",
+        "subtitleMore": "Number of accessories in this order",
+        "subDescription": "Enter serial numbers of devices assigned to this order. Separate following serial numbers from each other using symbol:",
+        "button": "Finalize this order",
+        "serialNumbers": "Serial number of device(s)",
+        "serialNumbersError": "The number of serial numbers must equal to number of measuring devices of the order"
+      },
+      "created": "A new Order is created with identifier {{ param }}",
+      "updated": "A Order is updated with identifier {{ param }}",
+      "deleted": "A Order is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Order {{ id }}?"
+      },
+      "detail": {
+        "title": "Order",
+        "summary": "Order summary",
+        "deviceCount": "Number of measuring devices",
+        "unit": "unit"
+      },
+      "filter": {
+        "orderNumber": "Order",
+        "clientName": "Customer",
+        "orderTitle": "Title",
+        "offerId": "Offer type",
+        "orderStatusTypeId": "Status",
+        "orderDateFrom": "Order date from",
+        "orderDateTo": "Order date to",
+        "paymentDateFrom": "Payment date from",
+        "paymentDateTo": "Payment date to",
+        "amountFrom": "Amount from",
+        "amountTo": "Amount to"
+      },
+      "notFound": "No Orders found",
+      "soldDeviceCount": "Total amount of sold measuring devices",
+      "soldAccessoryCount": "Total amount of sold accessories",
+      "orderNumber": "Order",
+      "clientName": "Customer",
+      "amount": "Amount",
+      "title": "Title",
+      "billedDate": "Billing date",
+      "offerId": "Offer type",
+      "offerTypeId": "Offer type ",
+      "paymentDate": "Payment Date",
+      "orderStatusTypeId": "Status"
+    }
+  }
+}

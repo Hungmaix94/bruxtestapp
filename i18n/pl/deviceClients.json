@@ -1,0 +1,25 @@
+{
+  "deviceClients": {
+    "title": "Urządzenia pomiarowe",
+    "notFound": "Nie znaleziono urządzenia",
+    "serialNumber": "Numer seryjny",
+    "patientFullName": "Pacjent",
+    "retailClient": "Klient detaliczny",
+    "rentDateFrom": "Wynajem od",
+    "rentDateTo": "Wynajem do",
+    "clientDeviceStatus": "Status",
+    "filter": {
+      "deviceSerialNumber": "Numer seryjny urządzenia",
+      "patientFullName": "Pacjent / Klient",
+      "rentDateFrom": "Wynajem od",
+      "rentDateTo": "Wynajem do",
+      "clientDeviceStatusId": "Status"
+    },
+    "statistic": {
+      "numberOfPurchasedDevices": "Liczba dostępnych urządzeń",
+      "takenDevices": "Zabrane urządzenia",
+      "resold": "odsprzedane",
+      "returnedToProducer": "Zwrócono do producenta"
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "bruxTestApp": {
+    "deviceStatusType": {
+      "home": {
+        "title": "Device Status Type",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Dodaj Device Status Type",
+        "createOrEditLabel": "Dodaj lub edytuj: Device Status Type",
+        "notFound": "No Device Status Types found"
+      },
+      "created": "Utworzono nowy obiekt typu Device Status Type z identyfikatorem {{ param }}",
+      "updated": "Uaktualniono obiekt typu Device Status Type z identyfikatorem {{ param }}",
+      "deleted": "Usunięto obiekt typu Device Status Type z identyfikatorem {{ param }}",
+      "delete": {
+        "question": "Czy na pewno chcesz usunąć Device Status Type {{ id }}?"
+      },
+      "detail": {
+        "title": "Device Status Type"
+      },
+      "id": "ID",
+      "name": "Name",
+      "description": "Description",
+      "enumKey": "Enum Key",
+      "isActive": "Is Active"
+    }
+  }
+}

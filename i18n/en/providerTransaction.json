@@ -1,0 +1,25 @@
+{
+  "bruxTestApp": {
+    "providerTransaction": {
+      "home": {
+        "title": "Provider Transaction",
+        "createLabel": "Create a new Provider Transaction",
+        "createOrEditLabel": "Create or edit a Provider Transaction",
+        "notFound": "No Provider Transaction found"
+      },
+      "created": "A new Provider Transaction is created with identifier {{ param }}",
+      "updated": "A Provider Transaction is updated with identifier {{ param }}",
+      "deleted": "A Provider Transaction is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Provider Transaction {{ id }}?"
+      },
+      "detail": {
+        "title": "Provider Transaction"
+      },
+      "name": "Name",
+      "description": "Description",
+      "enumKey": "Enum Key",
+      "isActive": "Is Active"
+    }
+  }
+}

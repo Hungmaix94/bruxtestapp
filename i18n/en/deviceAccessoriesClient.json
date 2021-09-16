@@ -1,0 +1,11 @@
+{
+  "deviceAccessoryClient": {
+    "title": "Accessories",
+    "notFound": "No Device Accessories found",
+    "statistic": {
+      "totalNumberOfPurchasedAccessories": "Total number of purchased accessories",
+      "totalNumberOfSoldAccessories": "Total number of sold accessories"
+    },
+    "unit": "unit"
+  }
+}

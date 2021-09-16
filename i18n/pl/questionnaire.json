@@ -1,0 +1,40 @@
+{
+  "bruxTestApp": {
+    "questionnaire": {
+      "home": {
+        "title": "Questionnaires",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Questionnaire",
+        "createOrEditLabel": "Create or edit a Questionnaire",
+        "notFound": "No Questionnaires found"
+      },
+      "created": "Ankieta została poprawnie utworzona.",
+      "updated": "Ankieta została poprawnie zaktualizowana.",
+      "deleted": "Pomyślnie usunięto ankietę.",
+      "deactivated": "Ankieta została pomyślnie dezaktywowana",
+      "restored": "Ankieta została pomyślnie przywrócona",
+      "delete": {
+        "question": "Czy na pewno chcesz usunąć tę ankietę listy kwestionariuszy?"
+      },
+      "detail": {
+        "title": "Ankieta"
+      },
+      "id": "ID",
+      "title": "Title",
+      "description": "Description",
+      "endDate": "End Date",
+      "questionnaireType": "Questionnaire Type",
+      "result": "Wynik",
+      "resultPlaceholder": "Wynik ankiety",
+      "scoreFrom": "Minimalna ocena",
+      "scoreFromPlaceholder": "Wpisz liczbę punktów",
+      "scoreTo": "Maksymalna ocena",
+      "scoreToPlaceholder": "Wpisz liczbę punktów",
+      "addNextPointRange": "Dodaj następny przedział punktów",
+      "questionPoint": "Liczba punktów za to pytanie",
+      "questionPointPlaceholder": "Wpisz liczbę punktów",
+      "surveyPunctation": "Punktacja ankiety",
+      "clickToImportAFile": "Kliknij, aby zaimportować plik"
+    }
+  }
+}

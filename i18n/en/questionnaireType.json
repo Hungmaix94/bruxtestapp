@@ -1,0 +1,34 @@
+{
+  "bruxTestApp": {
+    "questionnaireType": {
+      "home": {
+        "title": "Questionnaire Types",
+        "createLabel": "Create a Questionnaire Type",
+        "editLabel": "Edit Questionnaire Type",
+        "createOrEditLabel": "Create or edit a Questionnaire Type",
+        "notFound": "No Questionnaire Types found"
+      },
+      "created": "Successfully created Questionnaire Type",
+      "updated": "Successfully updated Questionnaire Type",
+      "deleted": "Successfully deleted Questionnaire Type",
+      "deactivated": "Successfully deactivated Questionnaire Type",
+      "restored": "Successfully restored Questionnaire Type",
+      "delete": {
+        "question": "This will immediately disable all questionnaires of this type"
+      },
+      "restore": {
+        "question": "Are you sure you want to restore this Questionnaire Type?"
+      },
+      "detail": {
+        "title": "Questionnaire Type"
+      },
+      "name": "Name",
+      "description": "Description",
+      "enumKey": "Enum Key",
+      "isActive": "Is Active",
+      "translateDescription": "Description Translation",
+      "itemTranslation": "Translation",
+      "isScored": "Is scored"
+    }
+  }
+}

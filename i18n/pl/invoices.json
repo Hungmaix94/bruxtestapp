@@ -1,0 +1,21 @@
+{
+  "invoices": {
+    "title": "Finanse",
+    "notFound": "Nie znaleziono faktury",
+    "invoiceNumber": "Numer faktury",
+    "invoiceTitle": "Tytuł faktury",
+    "clientName": "Klient",
+    "issueDate": "Data wydania",
+    "paymentTerm": "Termin płatności",
+    "status": "Status",
+    "filter": {
+      "invoiceNumber": "Numer faktury",
+      "invoiceTitle": "Tytuł",
+      "status": "Status",
+      "issueDateFrom": "Data wydania od",
+      "issueDateTo": "Data wydania do",
+      "paymentTermFrom": "Okres płatności od",
+      "paymentTermTo": "Termin płatności do"
+    }
+  }
+}

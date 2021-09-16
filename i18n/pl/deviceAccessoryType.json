@@ -1,0 +1,27 @@
+{
+  "bruxTestApp": {
+    "deviceAccessoryType": {
+      "home": {
+        "title": "Device Accessory Type",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Dodaj Device Accessory Type",
+        "createOrEditLabel": "Dodaj lub edytuj: Device Accessory Type",
+        "notFound": "No Device Accessory Types found"
+      },
+      "created": "Utworzono nowy obiekt typu Device Accessory Type z identyfikatorem {{ param }}",
+      "updated": "Uaktualniono obiekt typu Device Accessory Type z identyfikatorem {{ param }}",
+      "deleted": "Usunięto obiekt typu Device Accessory Type z identyfikatorem {{ param }}",
+      "delete": {
+        "question": "Czy na pewno chcesz usunąć Device Accessory Type {{ id }}?"
+      },
+      "detail": {
+        "title": "Device Accessory Type"
+      },
+      "id": "ID",
+      "name": "Name",
+      "description": "Description",
+      "enumKey": "Enum Key",
+      "isActive": "Is Active"
+    }
+  }
+}

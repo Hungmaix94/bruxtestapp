@@ -1,0 +1,75 @@
+{
+  "register": {
+    "title": "Rejestracja",
+    "description": "Fill the form to create an account in BruxTest system.",
+    "form": {
+      "button": "Zarejestruj",
+      "step": "Step",
+      "doctor": "Lekarz",
+      "individual": "Klient indywidualny",
+      "director": "Dyrektor placówki medycznej",
+      "personalData": "Dane osobiste",
+      "loginData": "Dane logowania",
+      "addressData": "Dane adresowe",
+      "medicalFacility": "Dane placówki medycznej",
+      "medicalAddress": {
+        "title": "Dane adresowe placówki medycznej",
+        "description": "Wybierz placówki medyczne, w ramach których świadczysz usługi stomatologiczne."
+      },
+      "firstName": "Imię",
+      "lastName": "Nazwisko",
+      "currency": "Waluta",
+      "email": "Adres e-mail",
+      "emailType": "Typ adresu e-mail",
+      "contactType": "Typ kontaktu",
+      "contactNumberType": "Typ numeru kontaktowego",
+      "contactNumber": "Numer kontaktowy",
+      "language": "Język",
+      "fullNameCompany": "Pełna nazwa firmy",
+      "nip": "NIP",
+      "companyEmail": "Firmowy adres e-mail",
+      "street": "Ulica",
+      "building": "Budynek",
+      "flat": "Mieszkanie",
+      "city": "Miasto",
+      "country": "Kraj",
+      "district": "Dzielnica",
+      "zipCode": "Kod pocztowy",
+      "medCenter": "Placówka medyczna",
+      "confirmRequired": "Aby utworzyć konto, musisz zaakceptować Regulamin",
+      "isDifferentAddress": "Adres dostawy jest inny niż adres placówki medycznej",
+      "confirm": "Potwierdzam, że przeczytałem i akceptuję <a href='#'>Regulamin</a>.",
+      "test": "Otwórz test"
+    },
+    "messages": {
+      "validate": {
+        "login": {
+          "required": "Twój login jest wymagany.",
+          "minlength": "Twój login musi mieć długość co najmniej 1 znaku",
+          "maxlength": "Twój login nie może być dłuższy niż 50 znaków",
+          "pattern": "Your username is invalid."
+        }
+      },
+      "success": "<strong>Rejestracja udała się!</strong> Wysłaliśmy do Ciebie email z linkiem do weryfikacji konta i prosimy abyś sprawdził swoją skrzynkę pocztową.",
+      "error": {
+        "fail": "<strong>Rejestracja nieudana!</strong> Prosimy spróbować później.",
+        "userexists": "<strong>Użytkownik z taką nazwą już istnieje!</strong> Prosimy wybrać inną nazwę.",
+        "emailexists": "<strong>Ten adres email jest już zarejestrowany!</strong> Prosimy wybrać inny adres."
+      }
+    },
+    "modal": {
+      "title": "Wybierz swoją rolę w systemie",
+      "description": "Proszę wybrać swoją rolę",
+      "button": "Przejdź do rejestracji",
+      "getTest": "Przystąpić do egzaminu",
+      "testDescription": "Po wypełnieniu formularza rejestracyjnego będziesz musiał\n\nzrób test, aby zakończyć proces rejestracji.",
+      "registerButton": "OK, przejdź do rejestracji",
+      "closeButton": "Nie teraz"
+    },
+    "hospital": {
+      "title": "Edytuj swój profil",
+      "back": "Plecy",
+      "button": "Zapisać"
+    }
+  }
+}

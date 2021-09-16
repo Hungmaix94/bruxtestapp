@@ -1,0 +1,43 @@
+{
+  "administrator": {
+    "home": {
+      "title": "Administrators",
+      "notFound": "No administrator found"
+    },
+    "notFound": "No administrator found",
+    "createAdministrator": "Create administrator",
+    "created": "A new user is created with identifier {{ param }}",
+    "updated": "A user is updated with identifier {{ param }}",
+    "deleted": "A user is deleted with identifier {{ param }}",
+    "delete": {
+      "question": "Are you sure you want to delete user {{ login }}?"
+    },
+    "modalCreateAdministrator": {
+      "title": "New administrator",
+      "subtitle": "Fill the form to create new user with <strong>{{param}}</strong> role.",
+      "button": "Create new administrator"
+    },
+    "modalEditAdministrator": {
+      "title": "Edit administrator",
+      "subtitle": "Fill the form to edit user with <strong>{{param}}</strong> role.",
+      "button": "Edit administrator"
+    },
+    "filter": {
+      "fullName": "Administrator name",
+      "email": "E-mail address",
+      "status": "Status",
+      "active": "Active",
+      "inactive": "Inactive"
+    },
+    "fullName": "Administrator",
+    "role": "Role",
+    "email": "Email address",
+    "status": "Status",
+    "actions": "Actions",
+    "active": "Active",
+    "inactive": "Inactive",
+    "firstName": "First name",
+    "lastName": "Last name",
+    "medicalFacilityId": "Medical facility"
+  }
+}

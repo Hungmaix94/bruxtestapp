@@ -1,0 +1,24 @@
+{
+  "bruxTestApp": {
+    "doctor": {
+      "home": {
+        "title": "Doctors",
+        "refreshListLabel": "Refresh list",
+        "notFound": "No doctor found"
+      },
+      "notFound": "No doctor found",
+      "fullName": "Doctor",
+      "pwzLicenseNumber": "PWZ license number",
+      "medicalFacilityName": "Medical facility",
+      "medCenterNip": "Nip",
+      "isActive": "Is Active",
+      "actions": "Actions",
+      "status": "Status",
+      "role": "Role",
+      "nip": "Nip",
+      "added": "Added:",
+      "active": "Active",
+      "inactive": "Inactive"
+    }
+  }
+}

@@ -29,6 +29,16 @@
     },
     "web": {
       "favicon": "./assets/images/favicon.png"
-    }
+    },
+    "packagerOpts": {
+      "config": "metro.config.js",
+      "sourceExts": [
+        "js",
+        "jsx",
+        "scss",
+        "sass"
+      ]
+    },
+    "description": "Description for BruxTest"
   }
 }

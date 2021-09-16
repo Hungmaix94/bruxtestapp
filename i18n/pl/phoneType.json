@@ -1,0 +1,27 @@
+{
+  "bruxTestApp": {
+    "phoneType": {
+      "home": {
+        "title": "Phone Type",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Dodaj Phone Type",
+        "createOrEditLabel": "Dodaj lub edytuj: Phone Type",
+        "notFound": "No Phone Types found"
+      },
+      "created": "Utworzono nowy obiekt typu Phone Type z identyfikatorem {{ param }}",
+      "updated": "Uaktualniono obiekt typu Phone Type z identyfikatorem {{ param }}",
+      "deleted": "Usunięto obiekt typu Phone Type z identyfikatorem {{ param }}",
+      "delete": {
+        "question": "Czy na pewno chcesz usunąć Phone Type {{ id }}?"
+      },
+      "detail": {
+        "title": "Phone Type"
+      },
+      "id": "ID",
+      "name": "Name",
+      "description": "Description",
+      "enumKey": "Enum Key",
+      "isActive": "Is Active"
+    }
+  }
+}

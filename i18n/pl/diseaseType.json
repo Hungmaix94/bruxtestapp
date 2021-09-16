@@ -1,0 +1,27 @@
+{
+  "bruxTestApp": {
+    "diseaseType": {
+      "home": {
+        "title": "Disease Type",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Dodaj Disease Type",
+        "createOrEditLabel": "Dodaj lub edytuj: Disease Type",
+        "notFound": "No Disease Types found"
+      },
+      "created": "Utworzono nowy obiekt typu Disease Type z identyfikatorem {{ param }}",
+      "updated": "Uaktualniono obiekt typu Disease Type z identyfikatorem {{ param }}",
+      "deleted": "Usunięto obiekt typu Disease Type z identyfikatorem {{ param }}",
+      "delete": {
+        "question": "Czy na pewno chcesz usunąć Disease Type {{ id }}?"
+      },
+      "detail": {
+        "title": "Disease Type"
+      },
+      "id": "ID",
+      "name": "Name",
+      "description": "Description",
+      "enumKey": "Enum Key",
+      "isActive": "Is Active"
+    }
+  }
+}

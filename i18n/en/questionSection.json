@@ -1,0 +1,36 @@
+{
+  "bruxTestApp": {
+    "questionSection": {
+      "home": {
+        "title": "Question Sections",
+        "createLabel": "Create a Question Section",
+        "editLabel": "Edit Question Section",
+        "createOrEditLabel": "Create or edit a Question Section",
+        "notFound": "No Question Sections found"
+      },
+      "created": "Successfully created Question Section",
+      "updated": "Successfully updated Question Section",
+      "deleted": "Successfully deleted Question Section",
+      "deactivated": "Successfully deactivated Question Section",
+      "restored": "Successfully restored Question Section",
+      "deactive": {
+        "question": "Are you sure you want to deactivate this Question Section?"
+      },
+      "delete": {
+        "question": "Are you sure you want to deactivate this Question Section?"
+      },
+      "restore": {
+        "question": "Are you sure you want to restore this Question Section?"
+      },
+      "detail": {
+        "title": "Question Section"
+      },
+      "name": "Name",
+      "description": "Description",
+      "enumKey": "Enum Key",
+      "isActive": "Is Active",
+      "translateDescription": "Description Translation",
+      "itemTranslation": "Translation"
+    }
+  }
+}

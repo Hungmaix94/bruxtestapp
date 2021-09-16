@@ -1,0 +1,53 @@
+{
+  "userManagement": {
+    "home": {
+      "title": "Users",
+      "supervisorTitle": "System owners",
+      "createSystemOwner": "Create system owner",
+      "refreshListLabel": "Refresh list",
+      "createLabel": "Create a new user",
+      "createOrEditLabel": "Create or edit a user"
+    },
+    "created": "A new user is created with identifier {{ param }}",
+    "updated": "A user is updated with identifier {{ param }}",
+    "deleted": "A user is deleted with identifier {{ param }}",
+    "delete": {
+      "question": "Are you sure you want to delete user {{ login }}?"
+    },
+    "detail": {
+      "title": "User"
+    },
+    "modalCreateSupervisor": {
+      "title": "New system owner",
+      "subtitle": "Fill the form to create new user with Supervisor role.",
+      "button": "Create new system owner"
+    },
+    "modalEditSupervisor": {
+      "title": "Edit system owner",
+      "subtitle": "Fill the form to edit user with Supervisor role.",
+      "button": "Edit system owner"
+    },
+    "login": "Login",
+    "firstName": "First name",
+    "lastName": "Last name",
+    "language": "Language",
+    "activated": "Activated",
+    "deactivated": "Deactivated",
+    "profiles": "Profiles",
+    "langKey": "Language",
+    "createdBy": "Created by",
+    "createdDate": "Created date",
+    "lastModifiedBy": "Modified by",
+    "lastModifiedDate": "Modified date",
+    "fullName": "Users",
+    "email": "Email",
+    "company": "Company",
+    "companyName": "Company",
+    "address": "Address",
+    "isActive": "Status",
+    "status": "Status",
+    "actions": "Actions",
+    "statusIsActive": "Active",
+    "statusIsInactive": "Inactive"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "bruxTestApp": {
+    "offerDeviceType": {
+      "home": {
+        "title": "Offer Device Type",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Dodaj Offer Device Type",
+        "createOrEditLabel": "Dodaj lub edytuj: Offer Device Type",
+        "notFound": "No Offer Device Types found"
+      },
+      "created": "Utworzono nowy obiekt typu Offer Device Type z identyfikatorem {{ param }}",
+      "updated": "Uaktualniono obiekt typu Offer Device Type z identyfikatorem {{ param }}",
+      "deleted": "Usunięto obiekt typu Offer Device Type z identyfikatorem {{ param }}",
+      "delete": {
+        "question": "Czy na pewno chcesz usunąć Offer Device Type {{ id }}?"
+      },
+      "detail": {
+        "title": "Offer Device Type"
+      },
+      "id": "ID",
+      "deviceQuantity": "Device Quantity",
+      "offer": "Offer",
+      "deviceType": "Device Type"
+    }
+  }
+}

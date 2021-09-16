@@ -1,0 +1,75 @@
+{
+  "register": {
+    "title": "Register",
+    "description": "Fill the form to create an account in BruxTest system.",
+    "form": {
+      "button": "Register",
+      "step": "Step",
+      "doctor": "Doctor",
+      "individual": "Individual client",
+      "director": "Medical facility director",
+      "personalData": "Personal data",
+      "loginData": "Login data",
+      "addressData": "Address data",
+      "medicalFacility": "Medical facility data",
+      "medicalAddress": {
+        "title": "Medical facility address data",
+        "description": "Choose medical facilities under which you provide dental services."
+      },
+      "firstName": "First name",
+      "lastName": "Last name",
+      "currency": "Currency",
+      "email": "E-mail address",
+      "emailType": "E-mail address type",
+      "contactType": "Contact type",
+      "contactNumberType": "Contact number type",
+      "contactNumber": "Contact number",
+      "language": "Language",
+      "fullNameCompany": "Full name company",
+      "nip": "NIP",
+      "companyEmail": "Company Email Address",
+      "street": "Street",
+      "building": "Building",
+      "flat": "Flat",
+      "city": "City",
+      "country": "Country",
+      "district": "District",
+      "zipCode": "Zip code",
+      "medCenter": "Medical facility",
+      "confirmRequired": "You have to accept the Terms and Conditions to register",
+      "isDifferentAddress": "Delivery address is different than medical facility address",
+      "confirm": "I confirm that I've read and I accept <a href='#'>Terms and Conditions</a>.",
+      "test": "Open the test"
+    },
+    "messages": {
+      "validate": {
+        "login": {
+          "required": "Your username is required.",
+          "minlength": "Your username is required to be at least 1 character.",
+          "maxlength": "Your username cannot be longer than 50 characters.",
+          "pattern": "Your username is invalid."
+        }
+      },
+      "success": "<strong>Registration saved!</strong> Please check your email for confirmation.",
+      "error": {
+        "fail": "<strong>Registration failed!</strong> Please try again later.",
+        "userexists": "<strong>Login name already registered!</strong> Please choose another one.",
+        "emailexists": "<strong>Email is already in use!</strong> Please choose another one."
+      }
+    },
+    "modal": {
+      "title": "Choose your role in the system",
+      "description": "Please choose your role",
+      "button": "Go to registration",
+      "getTest": "Take the test",
+      "testDescription": "After filling registration form you will have to\n\ntake a test to finalize the registration process.",
+      "registerButton": "OK, go to registration",
+      "closeButton": "Not now"
+    },
+    "hospital": {
+      "title": "Edit your profile",
+      "back": "Back",
+      "button": "Save"
+    }
+  }
+}

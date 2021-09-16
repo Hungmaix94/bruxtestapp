@@ -1,0 +1,107 @@
+{
+  "bruxTestApp": {
+    "offer": {
+      "home": {
+        "title": "Oferta",
+        "refreshListLabel": "Odśwież listę",
+        "createLabel": "Dodaj ofertę",
+        "createOrEditLabel": "Dodaj lub edytuj: ofertę",
+        "notFound": "Nie znaleziono ofert"
+      },
+      "createAnOffer": "Utwórz ofertę",
+      "editAnOffer": "Edytuj ofertę",
+      "notFound": "Nie znaleziono ofert",
+      "created": "Oferta została poprawnie utworzona.",
+      "updated": "Oferta została poprawnie zaktualizowana.",
+      "deleted": "Oferta została poprawnie usunięta.",
+      "deactivated": "Oferta została poprawnie dezaktywowana",
+      "restored": "Oferta została poprawnie przywrócona",
+      "delete": {
+        "question": "Czy na pewno chcesz usunąć {{ param }} z listy ofert?"
+      },
+      "detail": {
+        "title": "Oferta"
+      },
+      "id": "ID",
+      "monthLength": "Długość w miesiącach",
+      "name": "Nazwa",
+      "offerName": "Nazwa oferty",
+      "description": "Opis",
+      "periodStartDate": "Data rozpoczęcia",
+      "periodEndDate": "Data zakończenia",
+      "amount": "Cena",
+      "isActive": "Czy aktywna",
+      "offerType": "Rodzaj oferty",
+      "orderType": "Typ zamówienia",
+      "offerTypeId": "Rodzaj oferty",
+      "createdAt": "Utworzony",
+      "createdAtFrom": "Data utworzenia od",
+      "createdAtTo": "Data utworzenia do",
+      "modal": {
+        "title": "Proszę zarejestruj się",
+        "description": "Zarejestruj się w systemie BruxTest w celu zakupu lub subskrypcji oferty",
+        "button": {
+          "register": "Zarejestrować",
+          "close": "Może później",
+          "login": "Zaloguj się"
+        },
+        "text": "Posiadasz już konto? "
+      },
+      "monthly": "na miesiąc",
+      "card": {
+        "buy": "Kupujesz urządzenie",
+        "rent": "Wypożyczasz urządzenie"
+      },
+      "button": {
+        "choose": "Wybierz"
+      },
+      "currencyId": "Waluta",
+      "vatTypeId": "VAT",
+      "item": "szt",
+      "accessories": "Akcesoria",
+      "deviceType": "Rodzaj urządzenia",
+      "quantity": "Liczba",
+      "netPrice": "Cena neto",
+      "total": "Suma:",
+      "devices": "Urządzenia",
+      "purchasePricePerDevice": "Cena zakupu za 1 urządzenie",
+      "numberOfDevicesInOffer": "Ilość urządzeń w ofercie",
+      "net": "Neto",
+      "gross": "Brutto",
+      "modalEditOffer": {
+        "title": "Edytuj ofertę",
+        "createSubtitle": "Wypełnij formularz, aby edytować "
+      },
+      "modalCreateOffer": {
+        "title": "Nowa oferta",
+        "subtitle": "Proszę wybrać rodzaj oferty",
+        "createSubtitle": "Wypełnij formularz, aby utworzyć nową ",
+        "subscription": "subskrypcję na ",
+        "offer": "ofertę",
+        "offerTypeDescription": "Zdefiniuj przeznaczenie urządzenia pomiarowego w tej ofercie.",
+        "stepGeneralData": {
+          "title": "Informacje ogólne",
+          "subtitle": "Wpisz nazwę i opis oferty (opcjonalnie). Określ jej dostępność na stronie i datę ważności."
+        },
+        "totalAmountPart": {
+          "title": "Łączna cena oferty",
+          "subtitle": "Kwota brutto oferty zostanie wyświetlona na stronie głównej serwisu."
+        },
+        "accessoriesType": {
+          "stepFinancialData": {
+            "title": "Dane finansowe",
+            "subtitle": "Zdefiniuj walutę i wartość podatku VAT dla tworzonej oferty.",
+            "amountDescription": "Cena neto dostępu do systemu"
+          },
+          "stepAccessoriesData": {
+            "title": "Akcesoria",
+            "titleWithDevices": "Urządzenie i akcesoria",
+            "subtitle": "Przypisz akcesoria i ustal liczbę sztuk oraz ich cenę neto.",
+            "subtitleWithDevices": "Określ cenę urządzenia pomiarowego. Opcjonalnie przypisz akcesoria i ustal liczbę pozycji oraz ich cenę neto.",
+            "measuringDeviceNetPrice": "Cena neto urządzenia pomiarowego"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "invoices": {
+    "title": "Finances",
+    "notFound": "No invoice found",
+    "invoiceNumber": "Invoice number",
+    "invoiceTitle": "Invoice title",
+    "clientName": "Client",
+    "issueDate": "Issue date",
+    "paymentTerm": "Payment term",
+    "status": "Status",
+    "export": "Invoice export",
+    "filter": {
+      "invoiceNumber": "Invoice number",
+      "invoiceTitle": "Title",
+      "clientName": "Client",
+      "companyName": "Company name",
+      "status": "Status",
+      "issueDateFrom": "Issue date from",
+      "issueDateTo": "Issue date to",
+      "paymentTermFrom": "Payment term from",
+      "paymentTermTo": "Payment term to"
+    }
+  }
+}

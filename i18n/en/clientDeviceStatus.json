@@ -1,0 +1,27 @@
+{
+  "bruxTestApp": {
+    "clientDeviceStatus": {
+      "home": {
+        "title": "Client Device Statuses",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Client Device Status",
+        "createOrEditLabel": "Create or edit a Client Device Status",
+        "notFound": "No Client Device Statuses found"
+      },
+      "created": "A new Client Device Status is created with identifier {{ param }}",
+      "updated": "A Client Device Status is updated with identifier {{ param }}",
+      "deleted": "A Client Device Status is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Client Device Status {{ id }}?"
+      },
+      "detail": {
+        "title": "Client Device Status"
+      },
+      "id": "ID",
+      "name": "Name",
+      "description": "Description",
+      "enumKey": "Enum Key",
+      "isActive": "Is Active"
+    }
+  }
+}

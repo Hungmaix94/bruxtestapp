@@ -1,0 +1,75 @@
+{
+  "bruxTestApp": {
+    "deviceAccessory": {
+      "home": {
+        "title": "Accessories",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Device Accessory",
+        "createOrEditLabel": "Create or edit a Device Accessory",
+        "notFound": "No Device Accessories found",
+        "createDeviceAccessory": "Add new accessories"
+      },
+      "modalCreateAccessories": {
+        "title": "New accessories",
+        "subtitle": "Fill the form to add new accessories in the system.",
+        "button": "Add accessories"
+      },
+
+      "modalRegisterComplaint": {
+        "title": "Register complaint",
+        "subtitle": "You are making a complaint for:",
+        "subDescription": "Enter date of return",
+        "button": "Register complaint"
+      },
+      "modalEditAccessories": {
+        "title": "Update accessories",
+        "subtitle": "Change the form to update accessories in the system.",
+        "button": "Update accessories"
+      },
+      "totalOfAccessories": "Number of added accessories",
+      "totalOfComplaintAccessories": "Complaints",
+      "totalOfSoldAccessories": "Total accessories cost",
+      "totalAmountOfSoldAccessories": "Number of sold accessories",
+      "notFound": "No Device Accessories found",
+      "created": "Successfully created Accessories",
+      "updated": "Successfully updated Accessories",
+      "deleted": "Successfully deleted Accessories",
+      "complaintRegistered": "Complaint registered successfully",
+      "delete": {
+        "question": "Are you sure you want to delete this Accessory?"
+      },
+      "detail": {
+        "title": "Device Accessory"
+      },
+      "customerOrderNumber": "Customer's order number",
+      "deviceAccessoryStatusType": "Status",
+      "amountFrom": "Unit price from",
+      "amountTo": "Unit price to ",
+      "createdAtFrom": "Date added from",
+      "createdAtTo": "Date added until",
+
+      "added": "Added: ",
+      "orderno": "Order no.:",
+      "deviceAccessoryTypeId": "Accessories type",
+      "quantity": "Quantity",
+      "availableQuantity": "Available quantity",
+      "amount": "Unit price",
+      "amountLabel": "Amount",
+      "producerContractNumber": "Contract with manufacturer",
+      "deviceAccessoryStatusTypeId": "Status",
+      "deviceStatusTypeId": "Status",
+      "actions": "Actions",
+      "edit": "Edit",
+      "registerComplaint": "Register complaint",
+      "unit": "unit",
+      "items": "items",
+      "totalPrice": "Total price",
+
+      "orderNumber": "Order Number",
+      "returnDate": "Return Date",
+      "deviceAccessoryStatus": "Device Accessory Status",
+      "deviceType": "Device Type",
+      "noDeviceAccessoryError": "Please choose at least 1 item type"
+    }
+  }
+}

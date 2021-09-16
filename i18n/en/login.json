@@ -1,0 +1,23 @@
+{
+  "login": {
+    "title": "Sign in",
+    "info": "Your password was saved. Sign in.",
+    "form": {
+      "password": "Password",
+      "password.placeholder": "Your password",
+      "rememberme": "Remember me",
+      "forgot": "Forgot password",
+      "button": "Sign in",
+      "emailAlert": "Enter your e-mail address. We'll send you a password reset link.",
+      "reset": "Reset password"
+    },
+    "messages": {
+      "error": {
+        "authentication": "<strong>Failed to sign in!</strong> Please check your credentials and try again."
+      }
+    },
+    "password": {
+      "forgot": "Did you forget your password?"
+    }
+  }
+}

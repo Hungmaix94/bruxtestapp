@@ -1,0 +1,75 @@
+{
+  "bruxTestApp": {
+    "deviceAccessory": {
+      "home": {
+        "title": "Akcesoria",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Dodaj Device Accessory",
+        "createOrEditLabel": "Dodaj lub edytuj: Device Accessory",
+        "notFound": "No Device Accessories found",
+        "createDeviceAccessory": "Dodaj akcesoria"
+      },
+      "modalCreateAccessories": {
+        "title": "Nowe akcesoria",
+        "subtitle": "Wypełnij formularz, aby zarejestrować nowe akcesoria w systemie.",
+        "button": "Dodaj akcesoria"
+      },
+
+      "modalRegisterComplaint": {
+        "title": "Register complaint",
+        "subtitle": "You are making a complaint for:",
+        "subDescription": "Enter date of return",
+        "button": "Register complaint"
+      },
+      "modalEditAccessories": {
+        "title": "Uaktualnij akcesoria",
+        "subtitle": "Zmień wartości pól, aby uaktualnić akcesoria.",
+        "button": "Uaktualnij akcesoria"
+      },
+      "totalOfAccessories": "Liczba dodanych akcesoriów",
+      "totalOfComplaintAccessories": "Reklamacje",
+      "totalOfSoldAccessories": "Łączny koszt akcesoriów",
+      "totalAmountOfSoldAccessories": "Liczba sprzedanych akcesoriów",
+      "notFound": "Laitetarvikkeita ei löytynyt",
+      "created": "Akcesoria pomyślnie dodane",
+      "updated": "Akcesoria pomyślnie zaktualizowane",
+      "deleted": "Pomyślnie usunięto Akcesoria Urządzenia",
+      "complaintRegistered": "Skarga zarejestrowana poprawnie",
+      "delete": {
+        "question": "Czy na pewno chcesz usunąć to akcesorium urządzenia?"
+      },
+      "detail": {
+        "title": "Device Accessory"
+      },
+      "customerOrderNumber": "Numer zamówienia klienta",
+      "deviceAccessoryStatusType": "Status",
+      "amountFrom": "Cena jednostkowa od",
+      "amountTo": "Cena jednostkowa do",
+      "createdAtFrom": "Data dodania od",
+      "createdAtTo": "Data dodania do",
+
+      "added": "Dodano: ",
+      "orderno": "Numer zam.: ",
+      "deviceAccessoryTypeId": "Rodzaj akcesorium",
+      "quantity": "Liczba sztuk",
+      "availableQuantity": "Dostępna Ilość",
+      "amount": "Cena jednostkowa",
+      "amountLabel": "Kwota",
+      "producerContractNumber": "Umowa z producentem",
+      "deviceAccessoryStatusTypeId": "Status",
+      "deviceStatusTypeId": "Status",
+      "actions": "działania",
+      "edit": "Edytuj",
+      "registerComplaint": "Zgłoś reklamację",
+      "unit": "jedn.",
+      "items": "rzeczy",
+      "totalPrice": "Cena całkowita",
+
+      "orderNumber": "Numer zamówienia",
+      "returnDate": "Data powrotu",
+      "deviceAccessoryStatus": "Stan akcesoriów urządzenia",
+      "deviceType": "Rodzaj urządzenia",
+      "noDeviceAccessoryError": "Proszę wybrać, przynajmniej 1 typ przedmiotu"
+    }
+  }
+}

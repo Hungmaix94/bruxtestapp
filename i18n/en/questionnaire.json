@@ -1,0 +1,40 @@
+{
+  "bruxTestApp": {
+    "questionnaire": {
+      "home": {
+        "title": "Questionnaires",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Questionnaire",
+        "createOrEditLabel": "Create or edit a Questionnaire",
+        "notFound": "No Questionnaires found"
+      },
+      "created": "Successfully created Questionnaire",
+      "updated": "Successfully updated Questionnaire",
+      "deleted": "Successfully deleted Questionnaire",
+      "deactivated": "Successfully deactivated Questionnaire",
+      "restored": "Successfully restored Questionnaire",
+      "delete": {
+        "question": "Are you sure you want to delete this questionnaire"
+      },
+      "detail": {
+        "title": "Questionnaire"
+      },
+      "id": "ID",
+      "title": "Title",
+      "description": "Description",
+      "endDate": "End Date",
+      "questionnaireType": "Questionnaire Type",
+      "result": "Result",
+      "resultPlaceholder": "Survey result",
+      "scoreFrom": "Minimum score",
+      "scoreFromPlaceholder": "Enter number of points",
+      "scoreTo": "Maximum score",
+      "scoreToPlaceholder": "Enter number of points",
+      "addNextPointRange": "Add next point range",
+      "questionPoint": "Number of points for this question",
+      "questionPointPlaceholder": "Enter number of points",
+      "surveyPunctation": "Survey punctation",
+      "clickToImportAFile": "Click to import a file"
+    }
+  }
+}
