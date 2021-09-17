@@ -1,5 +1,9 @@
 {
   "homepage": {
-    "aboutUsDescription": "Our system helps clinicians diagnose and monitor bruxism, temporomandibular disorders and other dental problems outside the office."
+    "headerDescription": "The first mobile app for measuring and treating bruxism ",
+    "titleDescription": "BruxTest is a worldwide, research-based smartphone app designed to analyze bruxism and its possible consequences, and to take appropriate action on the condition.",
+    "aboutUsDescription": "Our system helps clinicians diagnose and monitor bruxism, temporomandibular disorders and other dental problems outside the office.",
+    "aboutUsDescriptionMore": " The system consists of a smartphone application and a small wireless electromyographic (EMG)device that the patient wears on the lower jaw. The system was created thanks to the work of an international research team.",
+    "measuringDeviceDescriptionMore": "Our EMG machine is designed to measure tooth friction while providing a protective barrier between the teeth. These appliances wear as intended with use and can be easily replaced to prevent damage to the dentition."
   }
 }

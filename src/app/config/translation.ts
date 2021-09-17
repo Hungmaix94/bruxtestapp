@@ -1,10 +1,7 @@
 // @ts-nocheck
 import { setLocale } from 'src/shared/reducers/locale';
-import TranslatorContext from "src/shared/layout/Translation/language/translator-context";
 import {AsyncStorage} from "react-native";
 
-TranslatorContext.setDefaultLocale('en');
-TranslatorContext.setRenderInnerTextForMissingKeys(false);
 
 export const languages: any = {
   en: { name: 'English' },

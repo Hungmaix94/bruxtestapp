@@ -1,11 +1,10 @@
-import React, {useState, FC} from 'react';
+import React, {useState, FC, useEffect} from 'react';
 
 import {ScrollView, Text, Image, Dimensions, StyleSheet} from 'react-native';
 import {Button, Flex, WingBlank,} from '@ant-design/react-native';
-import styles from "src/modules/homepage/hompage.scss";
+import styles from "src/modules/homepage/hompageStyle";
 import appMobile from "src/resources/images/home/app-mobile.png";
 import measureDesign from "src/resources/images/home/measure-design.png";
-import {IconFill} from "@ant-design/icons-react-native/lib";
 import {FontAwesome} from "@expo/vector-icons";
 import MapView, {Marker, PROVIDER_GOOGLE} from 'react-native-maps';
 
@@ -15,10 +14,13 @@ import pickup from "src/resources/images/home/pickup.png";
 import measurement from "src/resources/images/home/measurement.png";
 import result from "src/resources/images/home/result.png";
 import treatment from "src/resources/images/home/treatment.png";
-import translate from 'src/shared/layout/Translation/translate';
+import {t} from "src/shared/util/i18n";
+import {useOptions} from "src/shared/hooks/useOptions";
+import {useLocale} from "../../shared/hooks/useLocale";
 
 const Homepage: FC<any> = () => {
-
+    const locale = useLocale();
+   const { deviceAccessoryTypesOptions } = useOptions('DEVICE_ACCESSORY_TYPES');
     const stepList = [
         {
             id: 1,
@@ -91,7 +93,7 @@ const Homepage: FC<any> = () => {
                             textAlign: "center"
                         }}
                     >
-                        The first mobile app for measuring and treating bruxism
+                        {t("homepage:headerDescription")}
                     </Text>
                 </WingBlank>
             </Flex>
@@ -103,49 +105,48 @@ const Homepage: FC<any> = () => {
                             textAlign: "center"
                         }}
                     >
-                        BruxTest is a worldwide, research-based smartphone app designed to analyze bruxism and its
-                        possible
-                        consequences, and to take appropriate action on the condition.
+                        {t("homepage:titleDescription")}
+
                     </Text>
                 </WingBlank>
             </Flex>
-            <Flex direction={"column"}>
-                <WingBlank style={{marginTop: 20, marginBottom: 5}}>
-                    <Button type={"primary"} style={{borderRadius: 24, height: 49}}>
-                        <Flex align={"center"}>
-                            <IconFill
-                                name="apple"
-                                size={25}
-                                style={{marginRight: 5, color: "#ffffff"}}
-                            />
+            {/*<Flex direction={"column"}>*/}
+                {/*<WingBlank style={{marginTop: 20, marginBottom: 5}}>*/}
+                    {/*<Button type={"primary"} style={{borderRadius: 24, height: 49}}>*/}
+                        {/*<Flex align={"center"}>*/}
+                            {/*<IconFill*/}
+                                {/*name="apple"*/}
+                                {/*size={25}*/}
+                                {/*style={{marginRight: 5, color: "#ffffff"}}*/}
+                            {/*/>*/}
 
-                            <Text style={{
-                                fontSize: 20,
-                                color: "#ffffff"
-                            }}>
-                                Ios download
-                            </Text>
-                        </Flex>
-                    </Button>
-                </WingBlank>
-                <WingBlank style={{marginTop: 20, marginBottom: 5}}>
-                    <Button type={"warning"} style={{borderRadius: 24}}>
-                        <Flex>
-                            <IconFill
-                                name="android"
-                                size={25}
-                                style={{marginRight: 5, color: "#ffffff"}}
-                            />
-                            <Text style={{
-                                fontSize: 20,
-                                color: "#ffffff"
-                            }}>
-                                Android download
-                            </Text>
-                        </Flex>
-                    </Button>
-                </WingBlank>
-            </Flex>
+                            {/*<Text style={{*/}
+                                {/*fontSize: 20,*/}
+                                {/*color: "#ffffff"*/}
+                            {/*}}>*/}
+                                {/*Ios download*/}
+                            {/*</Text>*/}
+                        {/*</Flex>*/}
+                    {/*</Button>*/}
+                {/*</WingBlank>*/}
+                {/*<WingBlank style={{marginTop: 20, marginBottom: 5}}>*/}
+                    {/*<Button type={"warning"} style={{borderRadius: 24}}>*/}
+                        {/*<Flex>*/}
+                            {/*<IconFill*/}
+                                {/*name="android"*/}
+                                {/*size={25}*/}
+                                {/*style={{marginRight: 5, color: "#ffffff"}}*/}
+                            {/*/>*/}
+                            {/*<Text style={{*/}
+                                {/*fontSize: 20,*/}
+                                {/*color: "#ffffff"*/}
+                            {/*}}>*/}
+                                {/*Android download*/}
+                            {/*</Text>*/}
+                        {/*</Flex>*/}
+                    {/*</Button>*/}
+                {/*</WingBlank>*/}
+            {/*</Flex>*/}
             <WingBlank style={{marginTop: 20, marginBottom: 5,}}>
                 <Flex align="end" justify={"center"}>
                     <Image
@@ -172,7 +173,7 @@ const Homepage: FC<any> = () => {
                             textAlign: "center"
                         }}
                     >
-                        {translate("homepage.aboutUsDescription")}
+                        {t("homepage:aboutUsDescription")}
                     </Text>
                 </WingBlank>
             </Flex>
@@ -185,10 +186,8 @@ const Homepage: FC<any> = () => {
                             textAlign: "center"
                         }}
                     >
-                        The system consists of a smartphone application and a small wireless electromyographic (EMG)
-                        device
-                        that the patient wears on the
-                        lower jaw. The system was created thanks to the work of an international research team.
+                        {t("homepage:aboutUsDescriptionMore")}
+
                     </Text>
                 </WingBlank>
             </Flex>
@@ -220,13 +219,7 @@ const Homepage: FC<any> = () => {
                                     textAlign: "center"
                                 }}
                             >
-                                Our EMG machine is designed to measure tooth friction while providing a protective
-                                barrier
-                                between the teeth.
-
-                                These appliances wear as intended with use and can be easily replaced to prevent damage
-                                to
-                                the dentition.
+                                {t("homepage:measuringDeviceDescriptionMore")}
                             </Text>
                         </WingBlank>
                     </Flex>
@@ -253,7 +246,7 @@ const Homepage: FC<any> = () => {
                                 >
                                     <Image
                                         style={{
-                                            width: '100%',
+                                            width: 200,
                                             height: undefined,
                                             aspectRatio: 1,
                                         }}
@@ -281,6 +274,49 @@ const Homepage: FC<any> = () => {
                     )
                 })
             }
+
+            <Flex direction={"column"} style={{padding: 15, backgroundColor: "rgba(50, 60, 70, 0.9)", }}>
+                <WingBlank style={{marginTop: 20, marginBottom: 5}}>
+                    <Flex align="end" justify={"center"}>
+                        <WingBlank>
+                            <Text
+                                style={{
+                                    fontSize: 20,
+                                    textAlign: "center",
+                                    color: "#ffffff"
+                                }}
+                            >
+                                System offer
+                            </Text>
+                        </WingBlank>
+                    </Flex>
+                </WingBlank>
+                <WingBlank style={{marginTop: 20, marginBottom: 5}}>
+                    <Flex align="end" justify={"center"}>
+                        {/*{*/}
+                            {/*deviceAccessoryTypesOptions.map((deviceAccessoryTypesOption: any ) => {*/}
+
+                                {/*return(*/}
+                                    {/*<WingBlank>*/}
+                                        {/*<Text*/}
+                                            {/*style={{*/}
+                                                {/*fontSize: 20,*/}
+                                                {/*textAlign: "center",*/}
+                                                {/*color: "#ffffff"*/}
+                                            {/*}}*/}
+                                        {/*>*/}
+                                            {/*{*/}
+                                                {/*deviceAccessoryTypesOption?.label*/}
+                                            {/*}*/}
+                                        {/*</Text>*/}
+                                    {/*</WingBlank>*/}
+                                {/*)*/}
+                            {/*})*/}
+                        {/*}*/}
+
+                    </Flex>
+                </WingBlank>
+            </Flex>
 
 
             <WingBlank style={{marginTop: 20, marginBottom: 5}}>

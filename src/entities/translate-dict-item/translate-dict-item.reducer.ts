@@ -3,15 +3,19 @@ import axios from 'axios';
 import {cleanEntity} from 'src/shared/util/entity-utils';
 import {defaultValue, ITranslateDictItem, updatableFields} from 'src/shared/model/translate-dict-item.model';
 import {pick} from 'lodash';
-import {refreshDynamicTranslation} from 'src/shared/reducers/locale';
+// import {refreshDynamicTranslation} from 'src/shared/reducers/locale';
 import {createEntitySlice, EntityState, serializeAxiosError} from 'src/shared/reducers/reducer.utils';
-import {createAsyncThunk, isFulfilled, isPending} from '@reduxjs/toolkit';
+import {createAsyncThunk, createSlice, isFulfilled, isPending} from '@reduxjs/toolkit';
 import {TRANSLATED_DICTS} from 'src/entities/translate-dict-item/constants';
 import {
     deleteEntity,
     getEntities,
     partialUpdateEntity
 } from 'src/entities/device-accessory-type/device-accessory-type.reducer';
+import i18nFactory from 'src/shared/util/i18n';
+import Constants from "expo-constants";
+import {isRejectedAction} from "../../shared/reducers/reducer.utils";
+
 
 export const ACTION_TYPES = {
     FETCH_TRANSLATEDICTITEM: 'translateDictItem/fetch_translate_dict_item',
@@ -19,11 +23,16 @@ export const ACTION_TYPES = {
     UPDATE_TRANSLATEDICTITEM: 'translateDictItem/UPDATE_TRANSLATEDICTITEM',
     FETCH_DICT_ENUMS: 'translateDictItem/FETCH_DICT_ENUMS',
     FETCH_DYNAMIC_TRANSLATION: 'translateDictItem/fetch_dynamic_translation',
+    FETCH_TRANSLATION: 'translateDictItem/fetch_translation',
     FETCH_ENUM_KEY: 'translateDictItem/FETCH_ENUM_KEY',
     RESET: 'translateDictItem/RESET',
 };
 
-const initialState: EntityState<ITranslateDictItem> = {
+interface ITranslation extends EntityState<ITranslateDictItem> {
+    translations?: boolean;
+}
+
+const initialState: ITranslation = {
     loading: false,
     errorMessage: null,
     entities: [] as ReadonlyArray<ITranslateDictItem>,
@@ -33,6 +42,7 @@ const initialState: EntityState<ITranslateDictItem> = {
     totalItems: 0,
     updateSuccess: false,
     dynamicTranslations: {},
+    translations: {},
     dictEnums: Object.keys(TRANSLATED_DICTS).reduce(
         (result, dictName) => ({
             ...result,
@@ -41,8 +51,9 @@ const initialState: EntityState<ITranslateDictItem> = {
         {}
     ) as any,
 };
-
-const apiUrl = 'api/translations';
+const {manifest} = Constants;
+const apiUrl = `http://${manifest.debuggerHost.split(':').shift()}:8080/api/translations`;
+const apiBaseUrl = `http://${manifest.debuggerHost.split(':').shift()}:8080`;
 
 // Actions
 
@@ -100,7 +111,7 @@ export const createOrUpdateEntity = createAsyncThunk(
                     ),
                 ]),
             });
-            thunkAPI.dispatch(refreshDynamicTranslation());
+            // thunkAPI.dispatch(refreshDynamicTranslation());
             return result;
         } else if (newEntities.length > 0) thunkAPI.dispatch(createEntity(newEntities));
         else if (updateEntities.length > 0) thunkAPI.dispatch(updateEntity(updateEntities));
@@ -115,7 +126,7 @@ export const createEntity = createAsyncThunk(
             apiUrl,
             entities.map(entity => entity)
         );
-        ThunkAPI.dispatch(refreshDynamicTranslation());
+        // ThunkAPI.dispatch(refreshDynamicTranslation());
         return result;
     },
     {serializeError: serializeAxiosError}
@@ -129,29 +140,47 @@ export const updateEntity = createAsyncThunk(
 
             entities.map(entity => pick(entity, updatableFields))
         );
-        ThunkAPI.dispatch(refreshDynamicTranslation());
+        // ThunkAPI.dispatch(refreshDynamicTranslation());
         return result;
     },
     {serializeError: serializeAxiosError}
 );
-// @ts-ignore
+
 export const getDict = createAsyncThunk(ACTION_TYPES.FETCH_DICT_ENUMS, (dictType: string) => async (dispatch, getState) => {
     const requestUrl = `${apiUrl}/enum/${dictType}`;
     return Promise.all([new Promise(resolve => resolve(dictType)), axios.get(requestUrl)]);
 });
 
 export const getDictEnumsIfNeeded = createAsyncThunk(ACTION_TYPES.FETCH_DICT_ENUMS, async (dictType: string, thunkAPI) => {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
+
     if (!thunkAPI.getState().translateDictItem.dictEnums[dictType] || !thunkAPI.getState().translateDictItem.dictEnums[dictType].length) {
         const requestUrl = `${apiUrl}/enum/${dictType}`;
-        return Promise.all([new Promise(resolve => resolve(dictType)), axios.get(requestUrl)]);
+
+        return Promise.all([new Promise(resolve => resolve(dictType)),
+            axios.get(requestUrl)
+        ]);
     }
 });
 
 export const getDynamicTranslation = createAsyncThunk(ACTION_TYPES.FETCH_DYNAMIC_TRANSLATION, async (locale: any) => {
     const requestUrl = `${apiUrl}/dynamic/${locale}/`;
-    return axios.get<ITranslateDictItem[]>(requestUrl);
+
+    try {
+        const result = await axios.get<ITranslateDictItem[]>(requestUrl);
+
+        return result;
+    } catch (err) {
+        throw err;
+    }
+});
+
+export const getTranslation = createAsyncThunk(ACTION_TYPES.FETCH_TRANSLATION, async (locale: any) => {
+    try {
+        return axios.get(`${apiBaseUrl}/i18n/${locale}.json?buildTimestamp=${process.env.BUILD_TIMESTAMP}`, {baseURL: ''});
+
+    } catch (err) {
+        throw err;
+    }
 });
 
 export const reset = () => ({
@@ -160,7 +189,7 @@ export const reset = () => ({
 
 // slice
 
-export const TranslateDictItemSlice = createEntitySlice({
+export const TranslateDictItemSlice = createSlice({
     name: 'translateDictItem',
     initialState,
     extraReducers(builder) {
@@ -170,50 +199,37 @@ export const TranslateDictItemSlice = createEntitySlice({
                 state.entity = action.payload.data;
             })
             .addMatcher(isFulfilled(getDynamicTranslation), (state, action) => {
-                return {
-                    ...state,
-                    loading: false,
-                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                    // @ts-ignore
-                    dynamicTranslations: Object.keys(action.payload.data).reduce(
-                        (result, key) => ({
-                            ...result,
-                            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                            // @ts-ignore
-                            [key]: action.payload.data[key].reduce(
-                                // @ts-ignore
-                                (sum, translateObject) => ({
-                                    ...sum,
-                                    ...translateObject,
-                                }),
-                                {}
-                            ),
-                        }),
-                        {}
-                    ),
-                };
+                state.loading = false;
+                state.dynamicTranslations = Object.keys(action.payload.data).reduce(
+                    (result, key) => ({
+                        ...result,
+
+                        [key]: action.payload.data[key].reduce(
+                            (sum, translateObject) => ({
+                                ...sum,
+                                ...translateObject,
+                            }),
+                            {}
+                        ),
+                    }),
+                    {}
+                );
+            })
+            .addMatcher(isFulfilled(getTranslation), (state, action) => {
+                state.loading = false;
+                state.translations = action.payload.data
             })
             .addMatcher(isFulfilled(updateEntity, partialUpdateEntity), (state, action) => {
-                return {
-                    ...state,
-                    updating: false,
-                    loading: false,
-                    updateSuccess: true,
-                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                    // @ts-ignore
-                    entity: {},
-                };
+                state.updating = false;
+                state.loading = false;
+                state.updateSuccess = true;
+                state.entity = {};
             })
             .addMatcher(isFulfilled(createEntity), (state, action) => {
-                return {
-                    ...state,
-                    updating: false,
-                    loading: false,
-                    updateSuccess: true,
-                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                    // @ts-ignore
-                    entity: {},
-                };
+                state.loading = false;
+                state.updating = false;
+                state.updateSuccess = true;
+                state.entity = {};
             })
             .addMatcher(isFulfilled(getDictEnumsIfNeeded), (state, action) => {
                 return {
@@ -236,7 +252,7 @@ export const TranslateDictItemSlice = createEntitySlice({
                     enumKey: action.payload.data.enumKey,
                 };
             })
-            .addMatcher(isPending(getDynamicTranslation, getEntity, getDictEnumsIfNeeded), state => {
+            .addMatcher(isPending(getDynamicTranslation, getTranslation, getEntity, getDictEnumsIfNeeded), state => {
                 state.errorMessage = null;
                 state.updateSuccess = false;
                 state.loading = true;
@@ -246,6 +262,12 @@ export const TranslateDictItemSlice = createEntitySlice({
                 state.errorMessage = null;
                 state.updateSuccess = false;
                 state.updating = true;
+            })
+            .addMatcher(isRejectedAction, (state, action) => {
+                state.loading = false;
+                state.updating = false;
+                state.updateSuccess = false;
+                state.errorMessage = action.error.message;
             });
     },
 });

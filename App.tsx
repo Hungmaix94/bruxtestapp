@@ -10,19 +10,13 @@ import getStore from 'src/app/config/store';
 import useCachedResources from 'src/app/hooks/useCachedResources';
 import useColorScheme from 'src/app/hooks/useColorScheme';
 import Navigation from './navigation';
-import { registerLocale } from 'src/app/config/translation';
-
 const store = getStore();
-registerLocale(store);
-
 export default function App() {
     const isLoadingComplete = useCachedResources();
     const colorScheme = useColorScheme();
-
     if (!isLoadingComplete) {
         return <AppLoading/>;
     }
-
     return (
         <Provider store={store}>
             <SafeAreaProvider>

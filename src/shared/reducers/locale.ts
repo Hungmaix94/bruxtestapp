@@ -5,7 +5,6 @@ import {createSlice} from '@reduxjs/toolkit';
 
 import {AppThunk} from 'src/app/config/store';
 import {getDynamicTranslation} from 'src/entities/translate-dict-item/translate-dict-item.reducer';
-import TranslatorContext from "src/shared/layout/Translation/language/translator-context";
 import {AsyncStorage} from "react-native";
 
 
@@ -18,10 +17,10 @@ export type LocaleState = Readonly<typeof initialState>;
 export const setLocale: (locale: string, refreshDynamic?: boolean) => AppThunk =
     (locale, refreshDynamic = false) =>
         async (dispatch, getState) => {
-            if (!Object.keys(TranslatorContext.context.translations).includes(locale) || refreshDynamic) {
-                await fetchTranslation(locale, dispatch, getState);
-            }
-            dispatch(updateLocale(locale));
+            // if (!Object.keys(TranslatorContext.context.translations).includes(locale) || refreshDynamic) {
+            //     await fetchTranslation(locale, dispatch, getState);
+            // }
+            // dispatch(updateLocale(locale));
         };
 
 const fetchTranslation = async (locale, dispatch, getState) => {

@@ -1,16 +1,23 @@
 //@ts-nocheck
 import i18n from 'i18next';
-import { initReactI18next } from 'react-i18next';
-import LanguageDetector from 'i18next-browser-languagedetector';
+import {initReactI18next} from 'react-i18next';
+import en from "../../../i18n/en/index";
+import pl from "../../../i18n/pl/index";
+import {merge} from "lodash";
 
-export default function(resources, lng = 'vi', fallbackLng = 'en') {
+const resources = {
+    en,
+    pl
+};
+
+export default function i18nFactory(resource = {}, lng = 'en', fallbackLng = 'en'): { i18n?: any, translate?: any } {
     i18n
-        .use(LanguageDetector)
         .use(initReactI18next)
         .init({
-            resources,
+            resources: {
+                ...merge(resources, resource)
+            },
             lng,
-            fallbackLng,
             defaultNS: 'app',
             fallbackNS: 'common',
             interpolation: {
@@ -18,5 +25,5 @@ export default function(resources, lng = 'vi', fallbackLng = 'en') {
             }
         });
     const t = i18n.t.bind(i18n);
-    return { i18n, t };
+    return {i18n, t};
 }
