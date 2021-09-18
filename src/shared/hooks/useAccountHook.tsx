@@ -1,6 +1,6 @@
 import React, { FC, useMemo } from 'react';
 import { get } from 'lodash';
-import { useAppSelector } from 'src/app/config/hooks';
+import { useAppSelector } from 'src/app/config/store';
 import {generateMenuStructure} from "src/shared/hooks/menu-structure";
 
 const useAccountHook = ({ isDashboard = false }: { isDashboard?: boolean }) => {

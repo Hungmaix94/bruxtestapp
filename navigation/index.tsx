@@ -18,38 +18,10 @@ import TabTwoScreen from '../screens/TabTwoScreen';
 import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
 import Counter from "../src/modules/counter/Counter";
-import Homepage from "src/modules/homepage/Homepage";
 import {useEffect} from "react";
-import {getDynamicTranslation, getTranslation} from "../src/entities/translate-dict-item/translate-dict-item.reducer";
-import {useTranslation} from "react-i18next";
-import {useAppDispatch, useAppSelector} from "../src/app/config/hooks";
-import i18nFactory from "./../src/shared/util/i18n";
+import HomepageWrapper from "../src/modules/homepage/HomepageWrapper";
 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
-    const dispatch = useAppDispatch();
-    const {i18n} = useTranslation();
-    const locale = i18n.language || "en";
-    const translations = useAppSelector(state => state?.translateDictItem?.translations);
-    const dynamic = useAppSelector(state => state?.translateDictItem?.dynamicTranslations);
-    useEffect(() => {
-        if (locale) {
-            dispatch(getTranslation(locale));
-            dispatch(getDynamicTranslation(locale))
-        }
-    }, [locale]);
-
-    useEffect(() => {
-        if (translations && dynamic) {
-            i18nFactory({
-                [locale]: {
-                    ...translations,
-                    dynamic
-                }
-            }, locale)
-        }
-
-    }, [dynamic, translations]);
-
   return (
     <NavigationContainer
       linking={LinkingConfiguration}
@@ -68,7 +40,7 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 function RootNavigator() {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="Root" component={Homepage} options={{ headerShown: false }} />
+      <Stack.Screen name="Root" component={HomepageWrapper} options={{ headerShown: false }} />
       <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
       <Stack.Group screenOptions={{ presentation: 'modal' }}>
         <Stack.Screen name="Modal" component={ModalScreen} />

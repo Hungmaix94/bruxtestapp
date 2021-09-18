@@ -10,6 +10,9 @@ import getStore from 'src/app/config/store';
 import useCachedResources from 'src/app/hooks/useCachedResources';
 import useColorScheme from 'src/app/hooks/useColorScheme';
 import Navigation from './navigation';
+import "./src/shared/util/i18n";
+import 'dotenv/config';
+
 const store = getStore();
 export default function App() {
     const isLoadingComplete = useCachedResources();

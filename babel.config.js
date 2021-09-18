@@ -8,7 +8,7 @@ module.exports = function (api) {
                 'module-resolver',
                 {
                     root: ['./src'],
-                    extensions: ['.ios.js', '.android.js', '.js', '.ts', '.tsx', '.json', '.scss'],
+                    extensions: ['.ios.js', '.android.js', '.js', '.ts', '.tsx', '.json', '.scss','.png'],
                     alias: {
                         src: ['./src/'],
                     }
@@ -19,6 +19,9 @@ module.exports = function (api) {
                 "react-native-platform-specific-extensions",
                 {extensions: ["scss", "sass"]}
             ],
+            ["module:react-native-dotenv", {
+                "moduleName": "react-native-dotenv"
+            }]
         ],
     };
 };

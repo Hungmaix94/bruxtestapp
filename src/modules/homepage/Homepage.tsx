@@ -1,12 +1,12 @@
-import React, {useState, FC, useEffect} from 'react';
+import React, {useState, FC, useEffect, useRef, useContext, useMemo} from 'react';
 
-import {ScrollView, Text, Image, Dimensions, StyleSheet} from 'react-native';
-import {Button, Flex, WingBlank,} from '@ant-design/react-native';
-import styles from "src/modules/homepage/hompageStyle";
+import {ScrollView, Text, Image, Dimensions, StyleSheet, View, ImageBackground, TouchableOpacity} from 'react-native';
+import {Button, Flex, WingBlank, Drawer, List} from '@ant-design/react-native';
 import appMobile from "src/resources/images/home/app-mobile.png";
 import measureDesign from "src/resources/images/home/measure-design.png";
 import {FontAwesome} from "@expo/vector-icons";
 import MapView, {Marker, PROVIDER_GOOGLE} from 'react-native-maps';
+import ViewMoreText from 'react-native-view-more-text';
 
 import register from "src/resources/images/home/register.png";
 import specialist from "src/resources/images/home/specialist.png";
@@ -14,13 +14,30 @@ import pickup from "src/resources/images/home/pickup.png";
 import measurement from "src/resources/images/home/measurement.png";
 import result from "src/resources/images/home/result.png";
 import treatment from "src/resources/images/home/treatment.png";
-import {t} from "src/shared/util/i18n";
 import {useOptions} from "src/shared/hooks/useOptions";
-import {useLocale} from "../../shared/hooks/useLocale";
+import {useTranslation} from "react-i18next";
+import {DrawContext} from "../../shared/layouts/Drawer/DrawerCustom";
+import * as Animatable from 'react-native-animatable';
+import Collapsible from 'react-native-collapsible';
+import Accordion from 'react-native-collapsible/Accordion';
+import {useAppSelector} from "../../app/config/store";
+import {APP_CUSTOM_DATE_FORMAT, OFFER_TYPES, ORDER_TYPES} from "../../app/config/constants";
+import moment from "moment";
+import {round} from "../../shared/util/entity-utils";
+
 
 const Homepage: FC<any> = () => {
-    const locale = useLocale();
-   const { deviceAccessoryTypesOptions } = useOptions('DEVICE_ACCESSORY_TYPES');
+    const {t} = useTranslation();
+    const {onDrawerOpen} = useContext(DrawContext);
+    const {deviceAccessoryTypesOptions} = useOptions('DEVICE_ACCESSORY_TYPES');
+    const {offerTypeOptions} = useOptions("OFFER_TYPES");
+    const {vatTypesOptions} = useOptions("VAT_TYPES");
+    const {currenciesOptions} = useOptions("CURRENCIES");
+    const [activeSections, setActiveSections] = useState<number[]>([]);
+    const offerList = useAppSelector(state => state.offer.entities || []);
+    const offers = useMemo(() => offerList.filter(item =>
+        activeSections.includes(item?.offerTypeId || 0) && item.isActive), [offerList, activeSections]);
+
     const stepList = [
         {
             id: 1,
@@ -60,6 +77,113 @@ const Homepage: FC<any> = () => {
         },
     ];
 
+    const renderViewMore = (onPress: any) => {
+        return (
+            <Flex justify={"end"}>
+                <Text style={styles.textLink} onPress={onPress}>{t('homepage.more')}</Text>
+            </Flex>
+        )
+    };
+
+    const renderViewLess = (onPress: any) => {
+        return (
+            <Flex justify={"end"}>
+                <Text style={styles.textLink} onPress={onPress}>{t('homepage.less')}</Text>
+            </Flex>
+        )
+    };
+    const setSections = (sections: any) => {
+        setActiveSections(sections.includes(undefined) ? [] : sections);
+    };
+    const CONTENT = deviceAccessoryTypesOptions.map((deviceAccessoryTypesOption: any) => {
+        return {
+            title: deviceAccessoryTypesOption?.label,
+            content: (
+                <View>
+                    {
+                        offers.map((offer: any, index: number) => {
+                            const currencies = currenciesOptions.find((item: any) => item.id === offer.currencyId);
+                            const currenciesEnumKey = currencies?.enumKey;
+                            const vatType = vatTypesOptions.find((item: any) => item.id === offer?.vatTypeId)?.name;
+                            const vatRate = parseFloat(vatType) / 100;
+                            const amountGross = round(offer.amount + offer.amount * vatRate);
+
+                            return (
+                                <View key={index}>
+                                    <Flex direction={"column"}>
+                                        <WingBlank>
+                                            <Text>
+                                                {offer?.name}
+                                            </Text>
+                                        </WingBlank>
+                                        {
+                                            offer.offerTypeId < OFFER_TYPES.ACCESSORIES &&
+                                            <WingBlank>
+                                                <Text>
+                                                    {t(offer.orderTypeId === ORDER_TYPES.SALE ? "bruxTestApp.offer.card.buy" : "bruxTestApp.offer.card.rent")}
+                                                </Text>
+                                            </WingBlank>
+                                        }
+
+                                        {
+                                            offer?.periodEndDate &&
+                                            <WingBlank>
+                                                <Text>
+                                                    {t("homepage.availableTo") + " "}{moment(offer?.periodEndDate).format(APP_CUSTOM_DATE_FORMAT)}
+                                                </Text>
+                                            </WingBlank>
+                                        }
+
+                                        <WingBlank>
+                                            <Text>
+                                                {currenciesEnumKey}
+                                            </Text>
+                                            <Flex>
+                                                <Text>
+                                                    {amountGross}
+                                                </Text>
+                                            </Flex>
+                                        </WingBlank>
+                                    </Flex>
+                                </View>
+                            )
+                        })
+                    }
+                </View>
+            ),
+        }
+    });
+
+
+    const renderHeader = (section: any, _: any, isActive: boolean) => {
+        //Accordion Header view
+        return (
+            <Animatable.View
+                duration={400}
+                style={[styles.header, isActive ? styles.active : styles.inactive]}
+                transition="backgroundColor">
+                <Text style={styles.headerText}>{section.title}</Text>
+            </Animatable.View>
+        );
+    };
+
+    const renderContent = (section: any, _: any, isActive: boolean) => {
+        //Accordion Content view
+        return (
+            <Animatable.View
+                duration={400}
+                style={[styles.content, isActive ? styles.active : styles.inactive]}
+                transition="backgroundColor">
+                <Animatable.Text
+                    animation={isActive ? 'bounceIn' : undefined}
+                    style={{textAlign: 'center'}}>
+                    {section.content}
+                </Animatable.Text>
+            </Animatable.View>
+        );
+    };
+
+
     return (
         <ScrollView
             style={styles.homepage}
@@ -67,7 +191,7 @@ const Homepage: FC<any> = () => {
             showsHorizontalScrollIndicator={false}
             showsVerticalScrollIndicator={false}
         >
-            <WingBlank style={{marginTop: 40, marginBottom: 5}}>
+            <WingBlank style={styles.container}>
 
                 <Flex align="end" justify={"between"} style={{height: 30}}>
                     <Text
@@ -75,13 +199,17 @@ const Homepage: FC<any> = () => {
                     >
                         Bruxtest
                     </Text>
-                    <Button>
+                    <Text
+                        onPress={onDrawerOpen}
+                    >
                         <FontAwesome
                             name="bars"
                             size={25}
                             style={{marginRight: 5}}
                         />
-                    </Button>
+                    </Text>
+
+
                 </Flex>
             </WingBlank>
             <Flex style={{padding: 15}}>
@@ -93,7 +221,7 @@ const Homepage: FC<any> = () => {
                             textAlign: "center"
                         }}
                     >
-                        {t("homepage:headerDescription")}
+                        {t("homepage.headerDescription")}
                     </Text>
                 </WingBlank>
             </Flex>
@@ -105,48 +233,11 @@ const Homepage: FC<any> = () => {
                             textAlign: "center"
                         }}
                     >
-                        {t("homepage:titleDescription")}
+                        {t("homepage.titleDescription")}
 
                     </Text>
                 </WingBlank>
             </Flex>
-            {/*<Flex direction={"column"}>*/}
-                {/*<WingBlank style={{marginTop: 20, marginBottom: 5}}>*/}
-                    {/*<Button type={"primary"} style={{borderRadius: 24, height: 49}}>*/}
-                        {/*<Flex align={"center"}>*/}
-                            {/*<IconFill*/}
-                                {/*name="apple"*/}
-                                {/*size={25}*/}
-                                {/*style={{marginRight: 5, color: "#ffffff"}}*/}
-                            {/*/>*/}
-
-                            {/*<Text style={{*/}
-                                {/*fontSize: 20,*/}
-                                {/*color: "#ffffff"*/}
-                            {/*}}>*/}
-                                {/*Ios download*/}
-                            {/*</Text>*/}
-                        {/*</Flex>*/}
-                    {/*</Button>*/}
-                {/*</WingBlank>*/}
-                {/*<WingBlank style={{marginTop: 20, marginBottom: 5}}>*/}
-                    {/*<Button type={"warning"} style={{borderRadius: 24}}>*/}
-                        {/*<Flex>*/}
-                            {/*<IconFill*/}
-                                {/*name="android"*/}
-                                {/*size={25}*/}
-                                {/*style={{marginRight: 5, color: "#ffffff"}}*/}
-                            {/*/>*/}
-                            {/*<Text style={{*/}
-                                {/*fontSize: 20,*/}
-                                {/*color: "#ffffff"*/}
-                            {/*}}>*/}
-                                {/*Android download*/}
-                            {/*</Text>*/}
-                        {/*</Flex>*/}
-                    {/*</Button>*/}
-                {/*</WingBlank>*/}
-            {/*</Flex>*/}
             <WingBlank style={{marginTop: 20, marginBottom: 5,}}>
                 <Flex align="end" justify={"center"}>
                     <Image
@@ -173,7 +264,7 @@ const Homepage: FC<any> = () => {
                             textAlign: "center"
                         }}
                     >
-                        {t("homepage:aboutUsDescription")}
+                        {t("homepage.aboutUsDescription")}
                     </Text>
                 </WingBlank>
             </Flex>
@@ -186,7 +277,7 @@ const Homepage: FC<any> = () => {
                             textAlign: "center"
                         }}
                     >
-                        {t("homepage:aboutUsDescriptionMore")}
+                        {t("homepage.aboutUsDescriptionMore")}
 
                     </Text>
                 </WingBlank>
@@ -219,8 +310,32 @@ const Homepage: FC<any> = () => {
                                     textAlign: "center"
                                 }}
                             >
-                                {t("homepage:measuringDeviceDescriptionMore")}
+                                {t("homepage.measuringDeviceDescriptionMore")}
                             </Text>
+                        </WingBlank>
+                    </Flex>
+                </WingBlank>
+            </Flex>
+
+            <Flex style={{padding: 15}}>
+                <WingBlank style={{marginTop: 20, marginBottom: 5}}>
+                    <Flex align="end" justify={"center"}>
+                        <WingBlank>
+                            <ViewMoreText
+                                numberOfLines={3}
+                                renderViewMore={renderViewMore}
+                                renderViewLess={renderViewLess}
+                                textStyle={{textAlign: 'center'}}
+                            >
+                                <Text
+                                    style={{
+                                        fontSize: 20,
+                                        textAlign: "center"
+                                    }}
+                                >
+                                    {t("homepage.measuringDeviceDetail")}
+                                </Text>
+                            </ViewMoreText>
                         </WingBlank>
                     </Flex>
                 </WingBlank>
@@ -235,93 +350,114 @@ const Homepage: FC<any> = () => {
                 </Flex>
             </WingBlank>
 
-
-            {
-                stepList.map((step, index) => {
-                    return (
-                        <WingBlank style={{marginTop: 20, marginBottom: 5}} key={index}>
-                            <Flex align="center" justify={"start"} direction={"column"}>
-                                <Flex.Item
-                                    style={styles.stepLogo}
-                                >
-                                    <Image
-                                        style={{
-                                            width: 200,
-                                            height: undefined,
-                                            aspectRatio: 1,
-                                        }}
-                                        resizeMode='contain'
-                                        source={step.imgUrl}
-                                    />
-                                </Flex.Item>
-                                <Flex.Item>
-                                    <Text
-                                        style={styles.title}
+            <WingBlank style={{marginBottom: 20}}>
+                {
+                    stepList.map((step, index) => {
+                        return (
+                            <View key={index} style={{
+                                shadowOffset: {
+                                    width: 0,
+                                    height: 2
+                                },
+                                shadowOpacity: 0.35,
+                                shadowRadius: 3
+                            }}>
+                                <WingBlank style={styles.container}>
+                                    <Flex align="center" justify={"start"} direction={"column"}
+                                          style={styles.stepLogo}
                                     >
-                                        {step.id}.{" "}{step.title}
-                                    </Text>
-                                </Flex.Item>
-                                <Flex.Item>
-                                    <Text style={{
+                                        <Flex.Item>
+                                            <Image
+                                                style={{
+                                                    width: undefined,
+                                                    height: 150,
+                                                    aspectRatio: 1,
+                                                }}
+                                                resizeMode='contain'
+                                                source={step.imgUrl}
+                                            />
+                                        </Flex.Item>
+                                        <Flex.Item>
+                                            <Text
+                                                style={styles.title}
+                                            >
+                                                {step.id}.{" "}{step.title}
+                                            </Text>
+                                        </Flex.Item>
+                                        <Flex.Item>
+                                            <Text style={{
+                                                fontSize: 18,
+                                                textAlign: "center",
+                                                color: "#73858d",
+                                                marginTop: 10,
+                                                marginBottom: 30
+                                            }}>
+                                                {step.text}
+                                            </Text>
+                                        </Flex.Item>
+                                    </Flex>
+                                </WingBlank>
+                            </View>
+                        )
+                    })
+                }
+            </WingBlank>
+
+            <Flex direction={"column"} style={{padding: 15, backgroundColor: "rgba(50, 60, 70, 0.9)",}}>
+                <ImageBackground source={require("src/resources/images/home/offer-bg.png")} resizeMode="cover"
+                                 style={styles.image}>
+
+                    <WingBlank style={{marginTop: 20, marginBottom: 5}}>
+                        <Flex align="center" justify={"center"} direction={"column"}>
+                            <WingBlank>
+                                <Text
+                                    style={{
                                         fontSize: 20,
-                                        textAlign: "center"
-                                    }}>
-                                        {step.text}
-                                    </Text>
-                                </Flex.Item>
-                            </Flex>
-                        </WingBlank>
-                    )
-                })
-            }
+                                        textAlign: "center",
+                                        color: "#ffffff"
+                                    }}
+                                >
+                                    System offer
+                                </Text>
+                            </WingBlank>
 
-            <Flex direction={"column"} style={{padding: 15, backgroundColor: "rgba(50, 60, 70, 0.9)", }}>
-                <WingBlank style={{marginTop: 20, marginBottom: 5}}>
-                    <Flex align="end" justify={"center"}>
-                        <WingBlank>
-                            <Text
-                                style={{
-                                    fontSize: 20,
-                                    textAlign: "center",
-                                    color: "#ffffff"
-                                }}
-                            >
-                                System offer
-                            </Text>
-                        </WingBlank>
-                    </Flex>
-                </WingBlank>
-                <WingBlank style={{marginTop: 20, marginBottom: 5}}>
-                    <Flex align="end" justify={"center"}>
-                        {/*{*/}
-                            {/*deviceAccessoryTypesOptions.map((deviceAccessoryTypesOption: any ) => {*/}
+                            <WingBlank style={{paddingTop: 20}}>
+                                <Text
+                                    style={{
+                                        fontSize: 18,
+                                        textAlign: "center",
+                                        color: "#ffffff"
+                                    }}
+                                >
+                                    Find the package that suits your needs.
+                                </Text>
+                            </WingBlank>
+                        </Flex>
+                    </WingBlank>
+                    <WingBlank style={{marginTop: 20, marginBottom: 5}}>
+                        <Accordion
+                            activeSections={activeSections}
 
-                                {/*return(*/}
-                                    {/*<WingBlank>*/}
-                                        {/*<Text*/}
-                                            {/*style={{*/}
-                                                {/*fontSize: 20,*/}
-                                                {/*textAlign: "center",*/}
-                                                {/*color: "#ffffff"*/}
-                                            {/*}}*/}
-                                        {/*>*/}
-                                            {/*{*/}
-                                                {/*deviceAccessoryTypesOption?.label*/}
-                                            {/*}*/}
-                                        {/*</Text>*/}
-                                    {/*</WingBlank>*/}
-                                {/*)*/}
-                            {/*})*/}
-                        {/*}*/}
+                            sections={CONTENT}
 
-                    </Flex>
-                </WingBlank>
+                            touchableComponent={TouchableOpacity}
+
+                            expandMultiple={false}
+
+                            renderHeader={renderHeader}
+                            renderContent={renderContent}
+                            duration={400}
+                            onChange={setSections}
+                        />
+                    </WingBlank>
+
+                </ImageBackground>
             </Flex>
 
 
-            <WingBlank style={{marginTop: 20, marginBottom: 5}}>
+            <WingBlank style={styles.container}>
                 <MapView
-                    style={styleSheet.map}
+                    style={styles.map}
                     region={{
                         latitude: 51.107883,
                         longitude: 17.038538,
@@ -365,20 +501,61 @@ const Homepage: FC<any> = () => {
             </WingBlank>
 
         </ScrollView>
-);
+    );
 };
 
-const styleSheet = StyleSheet.create({
+const styles = StyleSheet.create({
     container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-},
+        marginTop: 40, marginBottom: 5, marginRight: "7%", marginLeft: "7%"
+    },
     map: {
-    width: Dimensions.get('window').width,
-    height: Dimensions.get('window').height,
-},
+        maxWidth: 400,
+        maxHeight: 400,
+        minWidth: 250,
+        minHeight: 250,
+    },
+    homepage: {
+        flex: 1,
+    },
+    title: {
+        fontSize: 30,
+    },
+    tinyLogo: {
+        height: 300,
+        width: 200,
+    },
+    stepLogo: {
+        borderRadius: 24,
+        padding: 10,
+        backgroundColor: "#eff9fc",
+    },
+    textLink: {
+        color: "#584cd9",
+        fontSize: 20
+    },
+    image: {
+        flex: 1,
+        justifyContent: "center"
+    },
+    content: {
+        padding: 20,
+        backgroundColor: '#fff',
+    },
+    active: {
+        backgroundColor: 'rgba(255,255,255,1)',
+    },
+    inactive: {
+        backgroundColor: 'rgba(245,252,255,1)',
+    },
+    header: {
+        backgroundColor: '#F5FCFF',
+        padding: 10,
+    },
+    headerText: {
+        textAlign: 'center',
+        fontSize: 16,
+        fontWeight: '500',
+    },
 });
 
 export default Homepage;

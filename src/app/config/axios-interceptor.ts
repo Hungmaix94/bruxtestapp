@@ -1,13 +1,12 @@
 //@ts-nocheck
 import axios from 'axios';
-import { SERVER_API_URL } from 'src/app/config/constants';
+import {SERVER_API_URL} from 'react-native-dotenv'
 
 const TIMEOUT = 1 * 60 * 1000;
 axios.defaults.timeout = TIMEOUT;
 axios.defaults.baseURL = SERVER_API_URL;
-
 const setupAxiosInterceptors = onUnauthenticated => {
-  const cancels = {};
+    const cancels = {};
   const onRequestSuccess = config => {
     const token = Storage.local.get('jhi-authenticationToken') || Storage.session.get('jhi-authenticationToken');
     if (token) {

@@ -1,4 +1,5 @@
 /* eslint no-console: off */
+//@ts-nocheck
 export default () => next => action => {
   if (process.env.NODE_ENV !== 'production') {
     const { type, payload, meta, error } = action;

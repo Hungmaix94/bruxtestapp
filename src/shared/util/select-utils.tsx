@@ -1,6 +1,7 @@
 //@ts-nocheck
 import React from 'react';
 import {isEmpty} from 'lodash';
+import {useTranslation} from "react-i18next";
 
 export const getValueFromOptions = (optionList, variableName, isNew, model, setFieldState) => {
     if (!isNew && !isEmpty(optionList)) {
@@ -17,7 +18,8 @@ export interface IOptionSelected {
     label: string;
 }
 
-export const getSelectOptions = (list, type, t) => {
+export const getSelectOptions = (list, type) => {
+    const {t} = useTranslation();
     return (list || []).map(otherEntity => ({
         key: otherEntity.id,
         value: otherEntity.id,
@@ -28,14 +30,15 @@ export const getSelectOptions = (list, type, t) => {
 };
 
 
-export const getOptions = (list, dictType, t) => {
+export const getOptions = (list, dictType): IOptionSelected => {
+    const {t} = useTranslation();
     return (list || []).map(otherEntity => ({
         id: otherEntity.id,
         key: otherEntity.id,
         value: otherEntity.id,
         enumKey: otherEntity?.enumKey,
-        translateLabel: t(`dynamic:${dictType}.${otherEntity.enumKey}.itemTranslation`),
-        label: t(`dynamic:${dictType}.${otherEntity.enumKey}.itemTranslation`),
+        translateLabel: t(`dynamic.${dictType}.${otherEntity.enumKey}.itemTranslation`),
+        label: t(`dynamic.${dictType}.${otherEntity.enumKey}.itemTranslation`),
     }));
 };
 

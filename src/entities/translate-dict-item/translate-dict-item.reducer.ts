@@ -12,9 +12,9 @@ import {
     getEntities,
     partialUpdateEntity
 } from 'src/entities/device-accessory-type/device-accessory-type.reducer';
-import i18nFactory from 'src/shared/util/i18n';
 import Constants from "expo-constants";
 import {isRejectedAction} from "../../shared/reducers/reducer.utils";
+import {SERVER_API_URL} from "../../app/config/constants";
 
 
 export const ACTION_TYPES = {
@@ -29,7 +29,7 @@ export const ACTION_TYPES = {
 };
 
 interface ITranslation extends EntityState<ITranslateDictItem> {
-    translations?: boolean;
+    translations?: any;
 }
 
 const initialState: ITranslation = {
@@ -51,9 +51,11 @@ const initialState: ITranslation = {
         {}
     ) as any,
 };
-const {manifest} = Constants;
-const apiUrl = `http://${manifest.debuggerHost.split(':').shift()}:8080/api/translations`;
-const apiBaseUrl = `http://${manifest.debuggerHost.split(':').shift()}:8080`;
+const apiUrl = `/api/translations`;
+const apiBaseUrl = ``;
+// const {manifest} = Constants;
+// const apiUrl = `http://${manifest.debuggerHost.split(':').shift()}:8080/api/translations`;
+// const apiBaseUrl = `http://${manifest.debuggerHost.split(':').shift()}:8080`;
 
 // Actions
 
@@ -152,7 +154,7 @@ export const getDict = createAsyncThunk(ACTION_TYPES.FETCH_DICT_ENUMS, (dictType
 });
 
 export const getDictEnumsIfNeeded = createAsyncThunk(ACTION_TYPES.FETCH_DICT_ENUMS, async (dictType: string, thunkAPI) => {
-
+        console.log(SERVER_API_URL,'SERVER_API_URLSERVER_API_URL');
     if (!thunkAPI.getState().translateDictItem.dictEnums[dictType] || !thunkAPI.getState().translateDictItem.dictEnums[dictType].length) {
         const requestUrl = `${apiUrl}/enum/${dictType}`;
 
@@ -188,10 +190,16 @@ export const reset = () => ({
 });
 
 // slice
+export type TranslateDictItemState = Readonly<typeof initialState>;
 
 export const TranslateDictItemSlice = createSlice({
     name: 'translateDictItem',
-    initialState,
+    initialState: initialState as TranslateDictItemState,
+    reducers: {
+        reset() {
+            return initialState;
+        },
+    },
     extraReducers(builder) {
         builder
             .addCase(getEntity.fulfilled, (state, action) => {
@@ -237,9 +245,7 @@ export const TranslateDictItemSlice = createSlice({
                     loading: false,
                     dictEnums: {
                         ...state.dictEnums,
-                        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                        // @ts-ignore
-                        [action.payload[0]]: action.payload[1].data,
+                        [action?.payload?.[0]]: action?.payload?.[1]?.data,
                     },
                 };
             })
@@ -247,8 +253,6 @@ export const TranslateDictItemSlice = createSlice({
                 return {
                     ...state,
                     loading: false,
-                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                    // @ts-ignore
                     enumKey: action.payload.data.enumKey,
                 };
             })

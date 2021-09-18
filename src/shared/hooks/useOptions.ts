@@ -6,10 +6,7 @@ import {getOptions} from 'src/shared/util/select-utils';
 import {getDictEnumsIfNeeded} from 'src/entities/translate-dict-item/translate-dict-item.reducer';
 import {useSelector} from 'react-redux';
 import {camelCase} from 'lodash';
-import {useAppDispatch, useAppSelector} from "src/app/config/hooks";
-import {useTranslation} from "react-i18next";
-import {t} from "src/shared/util/i18n";
-
+import {useAppDispatch, useAppSelector} from "src/app/config/store";
 export const useRole = () => {
     const authorities = useAppSelector(state => state.authentication.account.authorities);
     const isSupervisor = useMemo(() => hasAnyAuthority(authorities, [AUTHORITIES.SUPERVISOR.name]), [authorities]);
@@ -39,7 +36,7 @@ export const useOptions = (key: keyof ITRANSLATED_DICTS) => {
     const keyDict = TRANSLATED_DICTS[key]||"";
     const dispatch = useAppDispatch();
     const dicts = useSelector((state: IRootState) => state?.translateDictItem?.dictEnums[keyDict] || []);
-    const options = getOptions(dicts, keyDict,t);
+    const options = getOptions(dicts, keyDict);
     useEffect(() => {
         dispatch(getDictEnumsIfNeeded(keyDict));
     }, []);
