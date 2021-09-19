@@ -8,7 +8,12 @@
     "measuringDeviceDetail": "The EMG device has been designed especially for people suffering from bruxism who do not show any symptoms of temporomandibular joint disorders. Single-layer braces fit comfortably against any mouth size and, when positioned, help reduce muscle tension around your mouth while you sleep. EMG is easy to shape and recommended for use overnight as well as during the day as long as the patient is rubbing their teeth during this time.",
     "more": "More",
     "less": "Less",
-    "availableTo": "Available to"
-
+    "availableTo": "Available to",
+    "measuringDevice": "measuring device",
+    "contactDetail": "Find a medical facility or doctors that support the BruxTest system ...",
+    "search": "Search",
+    "contactUsPartTwo": "... or contact us by phone or e-mail",
+    "contactUsPartThree": "Call us on",
+    "contactUsPartFour": "Write to"
   }
 }

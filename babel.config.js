@@ -3,6 +3,10 @@ module.exports = function (api) {
     return {
         presets: ['babel-preset-expo'],
         plugins: [
+            ["module:react-native-dotenv", {
+                "moduleName": "@env",
+            }],
+
             'react-native-reanimated/plugin',
             [
                 'module-resolver',
@@ -18,10 +22,8 @@ module.exports = function (api) {
             [
                 "react-native-platform-specific-extensions",
                 {extensions: ["scss", "sass"]}
-            ],
-            ["module:react-native-dotenv", {
-                "moduleName": "react-native-dotenv"
-            }]
+            ]
+
         ],
     };
 };

@@ -1,7 +1,7 @@
 import React, {useState, FC, useEffect, useRef, useContext, useMemo} from 'react';
 
-import {ScrollView, Text, Image, Dimensions, StyleSheet, View, ImageBackground, TouchableOpacity} from 'react-native';
-import {Button, Flex, WingBlank, Drawer, List} from '@ant-design/react-native';
+import {ScrollView, Text, Image, StyleSheet, View, ImageBackground, TouchableOpacity, TextInput} from 'react-native';
+import {Button, Flex, WingBlank, WhiteSpace, Icon} from '@ant-design/react-native';
 import appMobile from "src/resources/images/home/app-mobile.png";
 import measureDesign from "src/resources/images/home/measure-design.png";
 import {FontAwesome} from "@expo/vector-icons";
@@ -18,25 +18,24 @@ import {useOptions} from "src/shared/hooks/useOptions";
 import {useTranslation} from "react-i18next";
 import {DrawContext} from "../../shared/layouts/Drawer/DrawerCustom";
 import * as Animatable from 'react-native-animatable';
-import Collapsible from 'react-native-collapsible';
 import Accordion from 'react-native-collapsible/Accordion';
 import {useAppSelector} from "../../app/config/store";
 import {APP_CUSTOM_DATE_FORMAT, OFFER_TYPES, ORDER_TYPES} from "../../app/config/constants";
 import moment from "moment";
 import {round} from "../../shared/util/entity-utils";
+import formatCurrency from "../../shared/util/currency-utils";
 
 
 const Homepage: FC<any> = () => {
     const {t} = useTranslation();
     const {onDrawerOpen} = useContext(DrawContext);
-    const {deviceAccessoryTypesOptions} = useOptions('DEVICE_ACCESSORY_TYPES');
-    const {offerTypeOptions} = useOptions("OFFER_TYPES");
+    const {offerTypesOptions} = useOptions("OFFER_TYPES");
     const {vatTypesOptions} = useOptions("VAT_TYPES");
     const {currenciesOptions} = useOptions("CURRENCIES");
+    const {deviceAccessoryTypesOptions} = useOptions("DEVICE_ACCESSORY_TYPES");
+
     const [activeSections, setActiveSections] = useState<number[]>([]);
     const offerList = useAppSelector(state => state.offer.entities || []);
-    const offers = useMemo(() => offerList.filter(item =>
-        activeSections.includes(item?.offerTypeId || 0) && item.isActive), [offerList, activeSections]);
 
     const stepList = [
         {
@@ -95,90 +94,182 @@ const Homepage: FC<any> = () => {
     const setSections = (sections: any) => {
         setActiveSections(sections.includes(undefined) ? [] : sections);
     };
-    const CONTENT = deviceAccessoryTypesOptions.map((deviceAccessoryTypesOption: any) => {
+    const CONTENT = offerTypesOptions.map((offerTypeOption: any) => {
         return {
-            title: deviceAccessoryTypesOption?.label,
-            content: (
-                <View>
-                    {
-                        offers.map((offer: any, index: number) => {
-                            const currencies = currenciesOptions.find((item: any) => item.id === offer.currencyId);
-                            const currenciesEnumKey = currencies?.enumKey;
-                            const vatType = vatTypesOptions.find((item: any) => item.id === offer?.vatTypeId)?.name;
-                            const vatRate = parseFloat(vatType) / 100;
-                            const amountGross = round(offer.amount + offer.amount * vatRate);
+            title: offerTypeOption?.label,
+            content: (isActive: boolean) => {
+                const offers = offerList.filter(item =>
+                    activeSections.includes(item?.offerTypeId || 0) && item.isActive);
 
-                            return (
-                                <View key={index}>
-                                    <Flex direction={"column"}>
-                                        <WingBlank>
-                                            <Text>
-                                                {offer?.name}
-                                            </Text>
-                                        </WingBlank>
-                                        {
-                                            offer.offerTypeId < OFFER_TYPES.ACCESSORIES &&
+                if (offers?.length === 0) {
+                    return false
+                }
+                return (
+                    <>
+                        {
+                            offers.map((offer: any, index: number) => {
+                                const currencies = currenciesOptions.find((item: any) => item.id === offer.currencyId);
+                                const currenciesEnumKey = currencies?.enumKey;
+                                const vatType = vatTypesOptions.find((item: any) => item.id === offer?.vatTypeId)?.label;
+                                const vatRate = parseFloat(vatType) / 100;
+                                const amountGross = round(offer.amount + offer.amount * vatRate);
+
+                                return (
+                                        <View key={index} style={[{
+                                            marginVertical: 10,
+                                            marginHorizontal: 20,
+                                            paddingBottom: 60,
+                                            paddingTop: 40,
+                                            marginBottom: 40,
+                                            borderRadius: 16,
+                                            minHeight: 300
+                                        }, isActive ? styles.active : styles.inactive]}>
                                             <WingBlank>
-                                                <Text>
-                                                    {t(offer.orderTypeId === ORDER_TYPES.SALE ? "bruxTestApp.offer.card.buy" : "bruxTestApp.offer.card.rent")}
-                                                </Text>
-                                            </WingBlank>
-                                        }
+                                                <WingBlank style={{marginBottom: 20}}>
+                                                    <Text style={styles.cardTitle}>
+                                                        {offer?.name}
+                                                    </Text>
+                                                </WingBlank>
+                                                {
+                                                    offer.offerTypeId < OFFER_TYPES.ACCESSORIES &&
+                                                    <WingBlank>
+                                                        <Text style={styles.cardDetail}>
+                                                            {t(offer.orderTypeId === ORDER_TYPES.SALE ? "bruxTestApp.offer.card.buy" : "bruxTestApp.offer.card.rent")}
+                                                        </Text>
+                                                    </WingBlank>
+                                                }
 
-                                        {
-                                            offer?.periodEndDate &&
-                                            <WingBlank>
-                                                <Text>
-                                                    {t("homepage.availableTo") + " "}{moment(offer?.periodEndDate).format(APP_CUSTOM_DATE_FORMAT)}
-                                                </Text>
-                                            </WingBlank>
-                                        }
+                                                {
+                                                    offer?.periodEndDate &&
+                                                    <WingBlank>
+                                                        <Text style={styles.cardDue}>
+                                                            {t("homepage.availableTo") + " "}{moment(offer?.periodEndDate).format(APP_CUSTOM_DATE_FORMAT)}
+                                                        </Text>
+                                                    </WingBlank>
+                                                }
 
-                                        <WingBlank>
-                                            <Text>
-                                                {currenciesEnumKey}
-                                            </Text>
-                                            <Flex>
-                                                <Text>
-                                                    {amountGross}
-                                                </Text>
-                                            </Flex>
-                                        </WingBlank>
-                                    </Flex>
-                                </View>
-                            )
-                        })
-                    }
-                </View>
-            ),
+
+                                                <WingBlank style={{marginTop: 20}}>
+                                                    <Flex align={"start"}>
+
+                                                        <Text style={styles.cardCurrencies}>
+                                                            {currenciesEnumKey}
+                                                        </Text>
+                                                        <Text style={styles.cardAmount}>
+                                                            {formatCurrency(amountGross)}
+                                                        </Text>
+                                                        {offer.orderTypeId === ORDER_TYPES.RENT && (
+                                                            <Text style={styles.cardAmount}>
+                                                                {t("bruxTestApp.offer.monthly")}
+                                                            </Text>
+                                                        )}
+                                                    </Flex>
+                                                </WingBlank>
+                                                <View style={{ width: "100%", height: 1, backgroundColor: '#e6edf0', marginVertical: 30}} />
+
+                                                <WingBlank>
+                                                    <Text style={{fontSize: 20, textAlign:"left"}}>
+                                                        {offer?.description}
+                                                    </Text>
+                                                </WingBlank>
+                                                <View style={{ width: "100%", height: 1, backgroundColor: '#e6edf0', marginVertical: 30}} />
+                                                <View style={{marginTop: 20}}>
+                                                        {
+                                                            offer.deviceNetPrice > 0 &&
+                                                            (
+                                                                offer.offerTypeId === OFFER_TYPES.RETAIL_OFFER ||
+                                                                offer.offerTypeId === OFFER_TYPES.WHOLESALE_OFFER
+                                                            ) &&
+
+                                                            <View>
+                                                                <Flex justify={"between"}>
+                                                                    <Text style={styles.text}>
+                                                                        <Text style={styles.textLink}>
+                                                                            &gt;
+                                                                        </Text>
+                                                                        <Text>
+                                                                            {offer?.deviceQuantity} x {t("homepage.measuringDevice")}
+                                                                        </Text>
+                                                                    </Text>
+                                                                    <Text>
+                                                                        <Text style={styles.textLink}>{amountGross} {currenciesEnumKey}</Text>
+                                                                    </Text>
+                                                                </Flex>
+                                                            </View>
+                                                        }
+                                                        {
+                                                            offer?.offerDeviceAccessories?.map((offerDeviceAccessory: any, index: number) => {
+                                                                const deviceAccessoryType = deviceAccessoryTypesOptions.find((deviceAccessoryTypesOption:any) => deviceAccessoryTypesOption.id === offerDeviceAccessory.deviceAccessoryTypeId);
+                                                                return (
+                                                                    <View key={index}>
+                                                                        <Flex justify={"between"}>
+                                                                            <Text style={styles.text}>
+                                                                                <Text style={styles.textLink}>
+                                                                                    &gt;
+                                                                                </Text>
+                                                                                <Text>
+                                                                                    {offer?.deviceQuantity} x {deviceAccessoryType?.translateLabel}
+                                                                                </Text>
+                                                                            </Text>
+                                                                            <Text
+                                                                                style={styles.textLink}>{amountGross} {currenciesEnumKey}</Text>
+                                                                        </Flex>
+                                                                    </View>
+                                                                )
+                                                            })
+                                                        }
+                                                </View>
+                                            </WingBlank>
+                                            <View style={{
+                                                position: 'absolute',
+                                                bottom: -20,
+                                                alignSelf: 'center',
+                                                width: 200,
+                                            }}>
+                                                <Button style={{borderRadius: 24, backgroundColor: "#584cd9"}}>
+                                                    <Text style={{fontWeight: "600", color: "#ffffff"}}>
+                                                        Choose
+                                                    </Text>
+                                                </Button>
+                                            </View>
+                                        </View>
+                                )
+                            })
+                        }
+                    </>
+                )
+            }
         }
     });
 
 
     const renderHeader = (section: any, _: any, isActive: boolean) => {
-        //Accordion Header view
         return (
             <Animatable.View
                 duration={400}
                 style={[styles.header, isActive ? styles.active : styles.inactive]}
                 transition="backgroundColor">
-                <Text style={styles.headerText}>{section.title}</Text>
+                <Text style={isActive ? styles.headerText : styles.headerTextInactive}>{section.title}</Text>
             </Animatable.View>
         );
     };
 
     const renderContent = (section: any, _: any, isActive: boolean) => {
-        //Accordion Content view
+
+        if (!section?.content()) {
+            return null
+        }
         return (
             <Animatable.View
                 duration={400}
-                style={[styles.content, isActive ? styles.active : styles.inactive]}
+                style={[styles.content,]}
                 transition="backgroundColor">
-                <Animatable.Text
+                <Animatable.View
                     animation={isActive ? 'bounceIn' : undefined}
-                    style={{textAlign: 'center'}}>
-                    {section.content}
-                </Animatable.Text>
+                >
+                    {section?.content(isActive)}
+
+                </Animatable.View>
             </Animatable.View>
         );
     };
@@ -437,14 +528,11 @@ const Homepage: FC<any> = () => {
                     <WingBlank style={{marginTop: 20, marginBottom: 5}}>
                         <Accordion
                             activeSections={activeSections}
-
                             sections={CONTENT}
-
                             touchableComponent={TouchableOpacity}
-
                             expandMultiple={false}
-
                             renderHeader={renderHeader}
+                            //@ts-ignore
                             renderContent={renderContent}
                             duration={400}
                             onChange={setSections}
@@ -456,6 +544,33 @@ const Homepage: FC<any> = () => {
 
 
             <WingBlank style={styles.container}>
+                <WingBlank>
+                    <Text
+                        style={styles.title}
+                    >
+                        Contact
+                    </Text>
+                    <WhiteSpace size="lg" />
+                    <Text
+                        style={[styles.text, styles.textCenter]}
+                    >
+                        {t("homepage.contactDetail")}
+                    </Text>
+                    <WhiteSpace size="lg" />
+                    <View style={styles.searchSection}>
+                        <FontAwesome
+                            name="search"
+                            size={20}
+                            style={styles.searchIcon}
+                        />
+                        <TextInput
+                            style={styles.input}
+                            placeholder={t("homepage.search")}
+                            onChangeText={(searchString) => {}}
+                            underlineColorAndroid="transparent"
+                        />
+                    </View>
+                </WingBlank>
                 <MapView
                     style={styles.map}
                     region={{
@@ -498,6 +613,26 @@ const Homepage: FC<any> = () => {
                         }}
                     />
                 </MapView>
+                <WingBlank style={{marginBottom: 40}}>
+                    <WhiteSpace size="lg" />
+                    <Text
+                        style={[styles.text, styles.textCenter]}
+                    >
+                        {t("homepage.contactUsPartTwo")}
+                    </Text>
+                    <WhiteSpace size="lg" />
+                    <Text
+                        style={[styles.text, styles.textCenter]}
+                    >
+                        {t("homepage.contactUsPartThree")}
+                    </Text>
+                    <WhiteSpace size="lg" />
+                    <Text
+                        style={[styles.text, styles.textCenter]}
+                    >
+                        {t("homepage.contactUsPartFour")} <Text style={styles.phone}>+48 521 125 521</Text>
+                    </Text>
+                </WingBlank>
             </WingBlank>
 
         </ScrollView>
@@ -519,6 +654,7 @@ const styles = StyleSheet.create({
     },
     title: {
         fontSize: 30,
+        textAlign: "center"
     },
     tinyLogo: {
         height: 300,
@@ -533,29 +669,97 @@ const styles = StyleSheet.create({
         color: "#584cd9",
         fontSize: 20
     },
+    text: {
+        fontSize: 20
+    },
+    textCenter: {
+        textAlign: "center"
+    },
     image: {
         flex: 1,
         justifyContent: "center"
     },
-    content: {
-        padding: 20,
-        backgroundColor: '#fff',
-    },
     active: {
-        backgroundColor: 'rgba(255,255,255,1)',
+        backgroundColor: '#ffffff',
     },
     inactive: {
-        backgroundColor: 'rgba(245,252,255,1)',
+        backgroundColor: '#2d353c',
     },
     header: {
         backgroundColor: '#F5FCFF',
         padding: 10,
+        marginVertical: 10,
+        marginHorizontal: 20,
+        borderRadius: 24
     },
     headerText: {
+        color: "#584cd9",
         textAlign: 'center',
         fontSize: 16,
         fontWeight: '500',
     },
+    headerTextInactive: {
+        color: '#ffffff',
+        textAlign: 'center',
+        fontSize: 16,
+        fontWeight: '500',
+    },
+    content: {
+        backgroundColor: "transparent"
+    },
+    cardWrapper: {},
+    cardTitle: {
+        color: "#ff2d76",
+        textAlign: 'center',
+        fontSize: 30,
+        fontWeight: "700",
+        textTransform: "uppercase"
+    },
+    cardDetail: {
+        textAlign: 'center',
+        fontSize: 20,
+        paddingBottom: 10
+    },
+    cardDue: {
+        color: "#a2b1b7",
+        textAlign: 'center',
+        fontSize: 16,
+    },
+    cardCurrencies: {
+        textAlign: 'center',
+        fontSize: 20,
+        paddingRight: 20
+    },
+    cardAmount: {
+        flexShrink: 1,
+        textAlign: 'center',
+        fontSize: 50,
+    },
+    searchSection: {
+        flex: 1,
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#fff',
+        marginVertical: 30
+    },
+    searchIcon: {
+        padding: 10,
+        borderRadius: 18,
+        color: "#757575"
+    },
+    input: {
+        flex: 1,
+        paddingTop: 10,
+        paddingRight: 10,
+        paddingBottom: 10,
+        paddingLeft: 0,
+        backgroundColor: '#fff',
+        color: '#424242',
+    },
+    phone: {
+        color: "#584cd9"
+    }
 });
 
 export default Homepage;

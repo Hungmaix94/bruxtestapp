@@ -12,9 +12,8 @@ import {
     getEntities,
     partialUpdateEntity
 } from 'src/entities/device-accessory-type/device-accessory-type.reducer';
-import Constants from "expo-constants";
 import {isRejectedAction} from "../../shared/reducers/reducer.utils";
-import {SERVER_API_URL} from "../../app/config/constants";
+import {REACT_APP_API_URL} from '@env';
 
 
 export const ACTION_TYPES = {
@@ -154,7 +153,7 @@ export const getDict = createAsyncThunk(ACTION_TYPES.FETCH_DICT_ENUMS, (dictType
 });
 
 export const getDictEnumsIfNeeded = createAsyncThunk(ACTION_TYPES.FETCH_DICT_ENUMS, async (dictType: string, thunkAPI) => {
-        console.log(SERVER_API_URL,'SERVER_API_URLSERVER_API_URL');
+    console.log(REACT_APP_API_URL, 'REACT_APP_API_URLREACT_APP_API_URL');
     if (!thunkAPI.getState().translateDictItem.dictEnums[dictType] || !thunkAPI.getState().translateDictItem.dictEnums[dictType].length) {
         const requestUrl = `${apiUrl}/enum/${dictType}`;
 
@@ -177,12 +176,7 @@ export const getDynamicTranslation = createAsyncThunk(ACTION_TYPES.FETCH_DYNAMIC
 });
 
 export const getTranslation = createAsyncThunk(ACTION_TYPES.FETCH_TRANSLATION, async (locale: any) => {
-    try {
-        return axios.get(`${apiBaseUrl}/i18n/${locale}.json?buildTimestamp=${process.env.BUILD_TIMESTAMP}`, {baseURL: ''});
-
-    } catch (err) {
-        throw err;
-    }
+    return axios.get(`${apiBaseUrl}/i18n/${locale}.json?buildTimestamp=${process.env.BUILD_TIMESTAMP}`);
 });
 
 export const reset = () => ({

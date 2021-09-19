@@ -11,9 +11,16 @@ import useCachedResources from 'src/app/hooks/useCachedResources';
 import useColorScheme from 'src/app/hooks/useColorScheme';
 import Navigation from './navigation';
 import "./src/shared/util/i18n";
-import 'dotenv/config';
+import { bindActionCreators } from 'redux';
+import setupAxiosInterceptors from "./src/app/config/axios-interceptor";
+import {clearAuthentication} from "./src/shared/reducers/authentication";
 
 const store = getStore();
+
+
+const actions = bindActionCreators({ clearAuthentication }, store.dispatch);
+setupAxiosInterceptors(() => actions.clearAuthentication('login.error.unauthorized'));
+
 export default function App() {
     const isLoadingComplete = useCachedResources();
     const colorScheme = useColorScheme();

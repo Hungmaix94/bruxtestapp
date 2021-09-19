@@ -18,7 +18,7 @@ export default () => next => action => {
   if (process.env.NODE_ENV === 'development') {
     const { error } = action;
     if (error) {
-      console.error(`${action.type} caught at middleware with reason: ${JSON.stringify(error.message)}.`);
+      console.error(`${action.type} caught at middleware with reason: ${JSON.stringify(error)}.`);
       if (error && error.response && error.response.data) {
         const message = getErrorMessage(error.response.data);
         console.error(`Actual cause: ${message}`);
