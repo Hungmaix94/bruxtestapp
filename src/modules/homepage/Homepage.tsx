@@ -18,24 +18,47 @@ import {useOptions} from "src/shared/hooks/useOptions";
 import {useTranslation} from "react-i18next";
 import {DrawContext} from "../../shared/layouts/Drawer/DrawerCustom";
 import * as Animatable from 'react-native-animatable';
+import styles from "src/modules/homepage/hompageStyle";
 import Accordion from 'react-native-collapsible/Accordion';
-import {useAppSelector} from "../../app/config/store";
+import {useAppDispatch, useAppSelector} from "../../app/config/store";
 import {APP_CUSTOM_DATE_FORMAT, OFFER_TYPES, ORDER_TYPES} from "../../app/config/constants";
 import moment from "moment";
 import {round} from "../../shared/util/entity-utils";
 import formatCurrency from "../../shared/util/currency-utils";
+import {fetchPlace, placeSelector} from "./homepage.reducer";
+import AutoComplete from "../../shared/layouts/AutoComplete";
+import {debounce} from "lodash";
 
 
 const Homepage: FC<any> = () => {
     const {t} = useTranslation();
+    const dispatch = useAppDispatch();
     const {onDrawerOpen} = useContext(DrawContext);
     const {offerTypesOptions} = useOptions("OFFER_TYPES");
     const {vatTypesOptions} = useOptions("VAT_TYPES");
     const {currenciesOptions} = useOptions("CURRENCIES");
     const {deviceAccessoryTypesOptions} = useOptions("DEVICE_ACCESSORY_TYPES");
+    const placeOptions = useAppSelector(placeSelector);
 
     const [activeSections, setActiveSections] = useState<number[]>([]);
+    const [locate, setLocale] = useState<{latitude: number, longitude: number}>({
+        latitude: 51.107883,
+        longitude: 17.038538,
+    });
     const offerList = useAppSelector(state => state.offer.entities || []);
+    const onSearch = (search: string) => {
+       debounceSearch(search)
+    };
+    const debounceSearch = debounce((search: string) => {
+        if(search) dispatch(fetchPlace(search));
+    }, 1000);
+
+    const onSelectedOption = (option: any) => {
+        setLocale({
+            longitude: option?.geometry?.coordinates[0],
+            latitude: option?.geometry?.coordinates[1],
+        });
+        };
 
     const stepList = [
         {
@@ -557,28 +580,18 @@ const Homepage: FC<any> = () => {
                         {t("homepage.contactDetail")}
                     </Text>
                     <WhiteSpace size="lg" />
-                    <View style={styles.searchSection}>
-                        <FontAwesome
-                            name="search"
-                            size={20}
-                            style={styles.searchIcon}
-                        />
-                        <TextInput
-                            style={styles.input}
-                            placeholder={t("homepage.search")}
-                            onChangeText={(searchString) => {}}
-                            underlineColorAndroid="transparent"
-                        />
-                    </View>
+                    <AutoComplete onChange={onSearch} data={placeOptions} onSelectedOption={onSelectedOption}/>
                 </WingBlank>
                 <MapView
                     style={styles.map}
                     region={{
-                        latitude: 51.107883,
-                        longitude: 17.038538,
-                        latitudeDelta: 0.0922,
-                        longitudeDelta: 0.0421,
-                    }} provider={PROVIDER_GOOGLE}
+                        latitude: locate?.latitude,
+                        longitude: locate?.longitude,
+                        latitudeDelta: 10,
+                        longitudeDelta: 10,
+                    }}
+
+                    provider={PROVIDER_GOOGLE}
                     customMapStyle={[
                         {
                             "featureType": "administrative.country",
@@ -607,10 +620,8 @@ const Homepage: FC<any> = () => {
                     ]}
                 >
                     <Marker
-                        coordinate={{
-                            latitude: 51.10564437824248,
-                            longitude: 17.03056289505437
-                        }}
+                        coordinate={{ latitude: locate?.latitude,
+                            longitude: locate?.longitude,}}
                     />
                 </MapView>
                 <WingBlank style={{marginBottom: 40}}>
@@ -638,128 +649,5 @@ const Homepage: FC<any> = () => {
         </ScrollView>
     );
 };
-
-const styles = StyleSheet.create({
-    container: {
-        marginTop: 40, marginBottom: 5, marginRight: "7%", marginLeft: "7%"
-    },
-    map: {
-        maxWidth: 400,
-        maxHeight: 400,
-        minWidth: 250,
-        minHeight: 250,
-    },
-    homepage: {
-        flex: 1,
-    },
-    title: {
-        fontSize: 30,
-        textAlign: "center"
-    },
-    tinyLogo: {
-        height: 300,
-        width: 200,
-    },
-    stepLogo: {
-        borderRadius: 24,
-        padding: 10,
-        backgroundColor: "#eff9fc",
-    },
-    textLink: {
-        color: "#584cd9",
-        fontSize: 20
-    },
-    text: {
-        fontSize: 20
-    },
-    textCenter: {
-        textAlign: "center"
-    },
-    image: {
-        flex: 1,
-        justifyContent: "center"
-    },
-    active: {
-        backgroundColor: '#ffffff',
-    },
-    inactive: {
-        backgroundColor: '#2d353c',
-    },
-    header: {
-        backgroundColor: '#F5FCFF',
-        padding: 10,
-        marginVertical: 10,
-        marginHorizontal: 20,
-        borderRadius: 24
-    },
-    headerText: {
-        color: "#584cd9",
-        textAlign: 'center',
-        fontSize: 16,
-        fontWeight: '500',
-    },
-    headerTextInactive: {
-        color: '#ffffff',
-        textAlign: 'center',
-        fontSize: 16,
-        fontWeight: '500',
-    },
-    content: {
-        backgroundColor: "transparent"
-    },
-    cardWrapper: {},
-    cardTitle: {
-        color: "#ff2d76",
-        textAlign: 'center',
-        fontSize: 30,
-        fontWeight: "700",
-        textTransform: "uppercase"
-    },
-    cardDetail: {
-        textAlign: 'center',
-        fontSize: 20,
-        paddingBottom: 10
-    },
-    cardDue: {
-        color: "#a2b1b7",
-        textAlign: 'center',
-        fontSize: 16,
-    },
-    cardCurrencies: {
-        textAlign: 'center',
-        fontSize: 20,
-        paddingRight: 20
-    },
-    cardAmount: {
-        flexShrink: 1,
-        textAlign: 'center',
-        fontSize: 50,
-    },
-    searchSection: {
-        flex: 1,
-        flexDirection: 'row',
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#fff',
-        marginVertical: 30
-    },
-    searchIcon: {
-        padding: 10,
-        borderRadius: 18,
-        color: "#757575"
-    },
-    input: {
-        flex: 1,
-        paddingTop: 10,
-        paddingRight: 10,
-        paddingBottom: 10,
-        paddingLeft: 0,
-        backgroundColor: '#fff',
-        color: '#424242',
-    },
-    phone: {
-        color: "#584cd9"
-    }
-});
 
 export default Homepage;

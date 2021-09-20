@@ -1,3 +1,4 @@
+
 declare module '*.json' {
   const value: any;
   export default value;
@@ -14,6 +15,9 @@ declare module "*.png" {
 }
 
 declare module '@env' {
-    const content: any;
-    export default content;
+    const content : {
+        REACT_APP_API_URL: string,
+        REACT_APP_API_MAPBOX: string
+    };
+    export default content
 }

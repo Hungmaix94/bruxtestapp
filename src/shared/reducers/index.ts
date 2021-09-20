@@ -10,6 +10,7 @@ import deviceAccessoryClient from 'src/entities/device-accessory-client/device-a
 import invoices from 'src/entities/invoice/invoice.reducer';
 
 import clientType from 'src/entities/client-type/client-type.reducer';
+import homepage from 'src/modules/homepage/homepage.reducer';
 
 import authorityType from 'src/entities/authority-type/authority-type.reducer';
 
@@ -59,6 +60,7 @@ const rootReducer = {
     authentication,
     locale,
     applicationProfile,
+    homepage,
     doctor,
     patient,
     clientType,
